@@ -65,7 +65,6 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
-
     // CHATBOT FLOTANTE 
     const chatbotButton = document.getElementById("chatbotToggle");
     const chatbotWindow = document.getElementById("chatbotWindow");
@@ -134,4 +133,8 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     }
+
+    // Para el footer:
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
 });

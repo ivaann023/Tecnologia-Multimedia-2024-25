@@ -30,6 +30,56 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Rutas</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Sobre Nosotros</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contacto</a></li>
+
+                        <!-- Botón de login si el usuario NO ha iniciado sesión 
+                        <li class="nav-item mx-0 mx-lg-1" id="login-btn">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#" onclick="toggleLogin()">Iniciar sesión</a>
+                        </li>
+                        -->
+
+                        <!-- Mensaje de bienvenida si el usuario ha iniciado sesión 
+                        <li class="nav-item mx-0 mx-lg-1 hidden" id="user-info">
+                            <span class="nav-link py-3 px-0 px-lg-3 rounded">
+                                Bienvenido, <span id="user-name"></span>
+                            </span>
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded text-danger" href="#" onclick="logout()">Cerrar sesión</a>
+                        </li>
+                        -->
+
+                        <!-- Mensaje de bienvenida si el usuario ha iniciado sesión -->
+                        <li class="nav-item mx-0 mx-lg-1" id="user-info" style="display: none;">
+                            <span class="nav-link py-3 px-0 px-lg-3 rounded" id="welcome-message">
+                                Bienvenido, <span id="user-name"></span> 
+                                <a class="text-danger" href="#" onclick="logout()">Cerrar sesión</a>
+                            </span>
+                        </li>
+
+                        <!-- Botón de login si el usuario NO ha iniciado sesión -->
+                        <li class="nav-item mx-0 mx-lg-1" id="login-btn">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded ms-5" href="#" onclick="toggleLogin()"> 
+                                <i class="fas fa-user"></i>
+                            </a>
+                        </li>
+
+                        <!-- Contenedor del formulario de login / registro -->
+                        <div id="login-box" class="login-box">
+                            <h3 id="form-title">Iniciar Sesión</h3>
+                            <input type="text" id="user-name-input" placeholder="Nombre" class="login-input" style="display: none;">
+                            <input type="email" id="login-email" placeholder="Correo electrónico" class="login-input">
+                            <input type="password" id="login-password" placeholder="Contraseña" class="login-input">
+                            <button id="login-action-btn" onclick="handleAuth(event)" class="login-btn">Ingresar</button>
+                            <p><a href="#" id="toggle-register" onclick="toggleRegister(event)">¿No tienes cuenta? Regístrate</a></p>
+                        </div>
+
+
+                        <!-- Mensaje de bienvenida cuando el usuario inicie sesión 
+                        <div id="welcome-message" class="welcome-box">
+                            <p>Bienvenido, <span id="user-name"></span></p>
+                            <button onclick="logout()" class="logout-btn">Cerrar sesión</button>
+                        </div>
+                        -->
+
+
                     </ul>
                 </div>
             </div>
@@ -62,6 +112,40 @@
                 </button>
             </div>
         </header>
+
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Mapa Ubicación en Tiempo Real</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fa-solid fa-tree"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+
+                <!-- Map Section 
+                <div class="map mt-4">
+                    <div id="map" style="height: 800px;"></div>
+                </div>
+                <script>
+                    function initMap() {
+                        var location = { lat: 39.6373, lng: 2.6450 };
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 10,
+                            center: location
+                        });
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: map
+                        });
+                    }
+                </script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+                -->
+            </div>
+        </section>
+
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
@@ -293,8 +377,10 @@
         </footer>
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; Your Website 2023</small></div>
-        </div>
+            <div class="container">
+                <small>Copyright &copy; Explora Mallorca <span id="current-year"></span></small>
+            </div>
+        </div>        
         <!-- Portfolio Modals-->
         <!-- Portfolio Modal 1-->
         <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
@@ -317,6 +403,32 @@
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/exc1.jpg" alt="..." />
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">Sa Calobra es una de las excursiones más impresionantes de Mallorca. Situada en la Sierra de Tramuntana, esta ruta ofrece paisajes espectaculares, un desfiladero impresionante y una playa escondida de aguas cristalinas. Es un destino ideal para los amantes de la naturaleza y el senderismo.</p>
+                                    
+                                    <!-- Carrusel de imágenes -->
+                                    <h3 class="text-secondary text-uppercase mb-4">Carrusel de imágenes</h3>
+                                    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-ride="carousel" data-bs-interval="4000">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="assets/img/calobra01.jpg" class="d-block w-100" alt="Imagen 1">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="assets/img/calobra02.jpg" class="d-block w-100" alt="Imagen 2">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="assets/img/calobra03.jpg" class="d-block w-100" alt="Imagen 3">
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Anterior</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Siguiente</span>
+                                        </button>
+                                    </div>
+                                    
+                                    
                                     <!-- Map Section -->
                                     <div class="map mt-4">
                                         <h3 class="text-secondary text-uppercase mb-4">Mapa de la Ubicación</h3>
@@ -336,6 +448,32 @@
                                         }
                                     </script>
                                     <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+                                    
+                                    <!-- Información adicional (Duración, Dificultad, etc.) -->
+                                    <div class="row mb-4">
+                                        <div class="col-6">
+                                            <h5><strong>Dificultad:</strong> Moderada</h5>
+                                        </div>
+                                        <div class="col-6">
+                                            <h5><strong>Duración:</strong> 4 horas</h5>
+                                        </div>
+                                    </div>
+
+                                    <!-- Vídeo de la excursión -->
+                                    <div class="video mb-4">
+                                        <h3 class="text-secondary text-uppercase mb-4">Vídeo de la Excursión</h3>
+                                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/czOLbyS_FH0?start=140" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    </div>
+                                    <!-- Sonido ambiente 
+                                    <div class="audio mb-4">
+                                        <h3 class="text-secondary text-uppercase mb-4">Sonidos a Resaltar de la Excursión</h3>
+                                        <audio controls>
+                                            <source src="assets/audio/sonido-naturaleza.mp3" type="audio/mp3">
+                                            Tu navegador no soporta el elemento de audio.
+                                        </audio>
+                                    </div>
+                                    -->
+                                    
                                     <!-- Ratings and Comments Panel-->
                                     <div class="ratings-comments mt-4">
                                         <h3 class="text-secondary text-uppercase mb-4">Valoraciones y Comentarios</h3>
@@ -567,8 +705,97 @@
             </div>
         </div>
 
-        <!-- Bootstrap core JS-->
+        <script>
+            // Función para mostrar/ocultar el formulario de login
+            function toggleLogin() {
+                const loginBox = document.getElementById('login-box');
+                loginBox.style.display = (loginBox.style.display === 'none' || loginBox.style.display === '') ? 'block' : 'none';
+            }
+
+            // Alternar entre Login y Registro
+            function toggleRegister(event) {
+                event.preventDefault();
+
+                const formTitle = document.getElementById('form-title');
+                const loginButton = document.getElementById('login-action-btn');
+                const nameInput = document.getElementById('user-name-input');
+                const toggleLink = document.getElementById('toggle-register');
+
+                if (formTitle.textContent === "Iniciar Sesión") {
+                    formTitle.textContent = "Registrarse";
+                    loginButton.textContent = "Registrarse";
+                    nameInput.style.display = "block"; 
+                    toggleLink.textContent = "¿Ya tienes cuenta? Inicia sesión";
+                } else {
+                    formTitle.textContent = "Iniciar Sesión";
+                    loginButton.textContent = "Ingresar";
+                    nameInput.style.display = "none"; 
+                    toggleLink.textContent = "¿No tienes cuenta? Regístrate";
+                }
+            }
+
+            // Función para manejar login y registro
+            function handleAuth(event) {
+                event.preventDefault();
+
+                const formTitle = document.getElementById('form-title').textContent;
+                const userName = document.getElementById('user-name-input').value;
+                const userEmail = document.getElementById('login-email').value;
+                const userPassword = document.getElementById('login-password').value;
+
+                if (!userEmail || !userPassword || (formTitle === "Registrarse" && !userName)) {
+                    alert("Por favor, rellene todos los campos.");
+                    return;
+                }
+
+                // Si es un registro, guardar también el nombre de usuario
+                if (formTitle === "Registrarse") {
+                    localStorage.setItem('userName', userName);
+                }
+                localStorage.setItem('userEmail', userEmail);
+                localStorage.setItem('userPassword', userPassword);
+
+                // Mostrar mensaje de bienvenida
+                mostrarBienvenida();
+            }
+
+            // Función para mostrar el mensaje de bienvenida y ocultar login
+            function mostrarBienvenida() {
+                const userName = localStorage.getItem('userName');
+                document.getElementById('user-name').textContent = userName || "Usuario";
+                
+                // Mostrar el mensaje de bienvenida y ocultar el formulario de login
+                document.getElementById('welcome-message').style.display = 'block';
+                document.getElementById('login-box').style.display = 'none';
+                document.getElementById('login-btn').style.display = 'none';
+                document.getElementById('user-info').style.display = 'block'; // Mostrar el contenedor con el mensaje de bienvenida
+            }
+
+            // Función para cerrar sesión
+            function logout() {
+                localStorage.clear();
+
+                // Ocultar el mensaje de bienvenida y mostrar nuevamente el login
+                document.getElementById('welcome-message').style.display = 'none';
+                document.getElementById('user-info').style.display = 'none'; // Ocultar el contenedor de bienvenida
+                document.getElementById('login-btn').style.display = 'block'; // Mostrar el botón de login
+                toggleLogin(); // Mostrar el formulario de login
+            }
+
+            // Mostrar el mensaje de bienvenida si el usuario ya ha iniciado sesión
+            window.onload = function () {
+                if (localStorage.getItem('userEmail')) {
+                    mostrarBienvenida();
+                }
+            };
+
+        </script>
+
+        <!-- Bootstrap core JS
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        -->
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->

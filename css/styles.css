@@ -11028,6 +11028,159 @@ html {
   color: #6c757d;
 }
 
+.hidden {
+  display: none !important;
+}
+
+
+/* Estilos para todo lo del Carrusel de imágenes */
+
+/* Estilo general del carrusel */
+#carouselExampleControlsNoTouching {
+  position: relative;
+  width: 100%;
+  height: 450px; /* Altura fija para todas las imágenes */
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave alrededor del carrusel */
+}
+
+/* Aseguramos que las imágenes tengan el mismo tamaño */
+.carousel-item img {
+  object-fit: cover; /* Hace que la imagen cubra completamente el contenedor sin distorsionarse */
+  width: 100%;
+  height: 100%; /* Ajusta la altura para que todas las imágenes tengan la misma altura */
+  border-radius: 15px; /* Esquinas redondeadas */
+}
+
+/* Estilo de los botones de navegación */
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.3); /* Fondo semitransparente para los botones */
+  border-radius: 50%;
+  padding: 10px;
+  z-index: 5;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.6); /* Efecto al pasar el mouse */
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  filter: invert(1); /* Hace que los iconos sean blancos */
+}
+
+/* Estilos adicionales para los controles (opcional) 
+.carousel-indicators {
+  bottom: 10px;
+}
+
+.carousel-indicators li {
+  background-color: #087990; /* Puntos indicadores blancos 
+}
+
+/*
+.carousel-indicators .active {
+  background-color: #007bff; /* Puntos activos de color azul 
+}*/
+/* ---------------------------------------------------------------- */
+
+
+/* Estilos generales para centrar los elementos */
+.login-box, .welcome-box {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: none;
+  text-align: center;
+}
+
+/* Estilos para el formulario de login y registro */
+.login-input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilos para los botones */
+.login-btn, .logout-btn {
+  background: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.login-btn:hover, .logout-btn:hover {
+  background: #0056b3;
+}
+
+/* Estilos para los enlaces */
+#toggle-register {
+  display: block;
+  margin-top: 10px;
+  color: #007BFF;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#toggle-register:hover {
+  text-decoration: underline;
+}
+
+/* Estilo para el mensaje de bienvenida */
+#user-info {
+  display: none; /* Inicialmente está oculto */
+  font-size: 16px;
+}
+
+#user-info .nav-link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+#user-info a {
+  margin-left: 10px;
+  color: #f44336;
+}
+
+#user-info a:hover {
+  text-decoration: underline;
+}
+
+.welcome-box {
+  display: none;
+  position: fixed;
+  top: 300px;
+  right: 20px;
+  background: blueviolet;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.logout-btn {
+  background: white;
+  color: #28a745;
+  font-weight: bold;
+}
+
 .video-background {
   position: absolute; 
   top: 0; 
