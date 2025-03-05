@@ -10833,16 +10833,76 @@ html {
 .page-section {
   padding: 6rem 0;
 }
+
 .page-section .page-section-heading {
-  font-size: 2.25rem;
-  line-height: 2rem;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  font-weight: bold;
 }
+
 @media (min-width: 992px) {
   .page-section .page-section-heading {
-    font-size: 3rem;
-    line-height: 2.5rem;
+    font-size: 3.5rem;
+    line-height: 3rem;
   }
 }
+
+/* Divider */
+.divider-custom {
+  margin: 1.5rem 0 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divider-custom .divider-custom-line {
+  width: 100%;
+  max-width: 8rem;
+  height: 0.3rem;
+  background-color: #fff;
+  border-radius: 1rem;
+}
+
+.divider-custom .divider-custom-icon {
+  color: #fff;
+  font-size: 2.5rem;
+  margin: 0 1rem;
+}
+
+/* Team Member Styles */
+.team-member {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.team-member:hover {
+  transform: scale(1.05);
+}
+
+.team-img {
+  width: 120px;  /* Ajusta el tamaño a lo que mejor se vea */
+  height: 120px; /* Mantiene la proporción cuadrada */
+  border-radius: 50%;
+  object-fit: cover; /* Recorta la imagen sin deformarla */
+  border: 3px solid #fff; /* Añade un borde para resaltar la imagen */
+  margin-bottom: 15px;
+  image-rendering: auto; /* Asegura que el navegador renderice bien la imagen */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para que se vea más pro */
+}
+
+.team-member h4 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
 
 .divider-custom {
   margin: 1.25rem 0 1.5rem;
@@ -10859,6 +10919,7 @@ html {
   border-radius: 1rem;
   border-color: #2c3e50;
 }
+
 .divider-custom .divider-custom-line:first-child {
   margin-right: 1rem;
 }
@@ -10967,10 +11028,49 @@ html {
   color: #6c757d;
 }
 
+.video-background {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  z-index: -1; /* Coloca el video detrás del contenido */
+}
+
+#toggle-sound {
+  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+  color: white; /* Texto blanco */
+  border: 2px solid white; /* Borde blanco */
+  border-radius: 25px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado alrededor del texto */
+  gap: 10px; /* Esto asegura que haya espacio entre el ícono y el texto */
+  font-size: 1rem; /* Tamaño de fuente más grande */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  cursor: pointer; /* Cambiar el cursor a mano al pasar por encima */
+  display: inline-flex; /* Alinea el texto e ícono */
+  align-items: center; /* Centrar el ícono verticalmente */
+  justify-content: center; /* Centrar el texto */
+  transition: all 0.3s ease; /* Transición suave para los efectos */
+  
+}
+
+#toggle-sound i {
+  margin-right: 10px; /* Separar el ícono del texto */
+}
+
+#toggle-sound:hover {
+  background: rgba(0, 0, 0, 0.8); /* Oscurecer el fondo al pasar el mouse */
+  border-color: #FFD700; /* Cambiar el color del borde al dorado */
+}
+
 .masthead {
   padding-top: calc(6rem + 74px);
   padding-bottom: 6rem;
+  position: relative;
+  z-index: 1; /* Coloca el contenido por encima del video */
 }
+
 .masthead .masthead-heading {
   font-size: 2.75rem;
   line-height: 2.75rem;
@@ -10978,23 +11078,35 @@ html {
 .masthead .masthead-subheading {
   font-size: 1.25rem;
 }
+
 .masthead .masthead-avatar {
-  width: 15rem;
+  width: 15rem; /* Tamaño del avatar */
+  height: 15rem; /* Asegúrate de que sea un círculo perfecto */
+  border-radius: 50%; /* Bordes redondeados, lo que lo convierte en un círculo */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra sutil alrededor para un borde visual */
+  object-fit: cover; /* Asegura que la imagen se ajuste correctamente dentro del círculo */
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease; /* Transiciones más suaves */
 }
 
-@media (min-width: 992px) {
-  .masthead {
-    padding-top: calc(6rem + 104px);
-    padding-bottom: 6rem;
-  }
-  .masthead .masthead-heading {
-    font-size: 4rem;
-    line-height: 3.5rem;
-  }
-  .masthead .masthead-subheading {
-    font-size: 1.5rem;
-  }
+/* Efecto cuando el usuario pasa el ratón sobre el avatar */
+.masthead .masthead-avatar:hover {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño del avatar */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6); /* Aumenta la sombra al hacer hover */
 }
+
+
+/* Añadir un filtro oscuro sobre el video */
+.masthead::after {
+  content: ''; /* Crear el pseudo-elemento */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Color negro semitransparente */
+  z-index: -1; /* Colocarlo encima del video, pero debajo del contenido */
+}
+
 .portfolio .portfolio-item {
   cursor: pointer;
   position: relative;
@@ -11033,6 +11145,108 @@ html {
     line-height: 2.5rem;
   }
 }
+
+/* Contenedor del chatbot flotante */
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+/* Botón flotante del chatbot */
+.chatbot-button {
+  width: 60px;
+  height: 60px;
+  background: #ff9800;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+}
+
+.chatbot-button:hover {
+  background: #e68900;
+}
+
+/* Ventana del chatbot */
+.chatbot-window {
+  width: 320px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  overflow: hidden;
+}
+
+/* Encabezado del chatbot */
+.chatbot-header {
+  background: #ff9800;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatbot-header button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Cuerpo del chatbot */
+.chatbot-body {
+  height: 200px;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+/* Mensaje del bot */
+.bot-message {
+  background: #f1f1f1;
+  padding: 8px;
+  border-radius: 10px;
+  width: fit-content;
+  max-width: 80%;
+}
+
+/* Footer del chatbot */
+.chatbot-footer {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.chatbot-footer input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.chatbot-footer button {
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 8px;
+  margin-left: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 
 .footer {
   padding-top: 5rem;
