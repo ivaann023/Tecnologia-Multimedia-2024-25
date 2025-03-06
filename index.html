@@ -13,6 +13,10 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="crossorigin=""></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/gpx.min.js"></script>
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
@@ -87,7 +91,7 @@
         <!-- Masthead-->
         <header class="masthead text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                 <!-- Video como fondo -->
+                <!-- Video como fondo -->
                 <video autoplay muted loop id="background-video" class="video-background">
                     <source src="assets/video/VideoPortada.mp4" type="video/mp4">
                     Tu navegador no soporta el elemento de video.
@@ -124,25 +128,11 @@
                     <div class="divider-custom-line"></div>
                 </div>
 
-                <!-- Map Section 
+                <!-- Map Section -->
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
                 <div class="map mt-4">
                     <div id="map" style="height: 800px;"></div>
                 </div>
-                <script>
-                    function initMap() {
-                        var location = { lat: 39.6373, lng: 2.6450 };
-                        var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 10,
-                            center: location
-                        });
-                        var marker = new google.maps.Marker({
-                            position: location,
-                            map: map
-                        });
-                    }
-                </script>
-                <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
-                -->
             </div>
         </section>
 
@@ -432,22 +422,85 @@
                                     <!-- Map Section -->
                                     <div class="map mt-4">
                                         <h3 class="text-secondary text-uppercase mb-4">Mapa de la Ubicación</h3>
-                                        <div id="map" style="height: 400px;"></div>
+                                        <div id="map2" style="height: 400px;"></div>
                                     </div>
+
+                                    <!-- Reubicar en un futuro -->
                                     <script>
+                                        
                                         function initMap() {
+                                            
                                             var location = { lat: 39.8500, lng: 2.8000 }; // Coordinates for Sa Calobra, Mallorca
-                                            var map = new google.maps.Map(document.getElementById('map'), {
-                                                zoom: 10,
-                                                center: location
+
+                                            var location2 = { lat: 39.7400, lng: 2.7000 }; // Coordinates for Sa Calobra, Mallorca
+                                            
+                                            var greenIcon = new L.Icon({
+                                                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+                                                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                                                iconSize: [25, 41],
+                                                iconAnchor: [12, 41],
+                                                popupAnchor: [1, -34],
+                                                shadowSize: [41, 41]
                                             });
-                                            var marker = new google.maps.Marker({
-                                                position: location,
-                                                map: map
+                                            
+                                            //MAPA 1
+                                            var map = L.map('map').setView([39.7400,2.7000],10);
+                                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                                maxZoom: 19,
+                                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                            }).addTo(map);
+
+
+                                            if (navigator.geolocation) {
+                                                navigator.geolocation.getCurrentPosition(function (position) {
+                                                    var userLocation = {
+                                                        lat: position.coords.latitude,
+                                                        lng: position.coords.longitude
+                                                    };
+
+                                                    var userMarker = L.marker([userLocation.lat, userLocation.lng], { icon: greenIcon }).addTo(map);
+
+                                                }, function () {
+                                                    alert("No se pudo obtener la ubicación.");
+                                                },{
+                                                    enableHighAccuracy: false,
+                                                    maximumAge: Infinity
+                                                });
+                                            } else {
+                                                alert("Tu navegador no soporta Geolocalización.");
+                                            }
+                                            
+
+                                            var marker12 = L.marker([location.lat, location.lng]).addTo(map);
+
+                                            var marker13 = L.marker([location2.lat, location2.lng]).addTo(map);
+                                            
+
+                                            //MAPA 2
+                                            const map2 = L.map('map2');
+                                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                            }).addTo(map2);
+
+                                            
+
+                                            var modal = document.getElementById('portfolioModal1');
+                                            modal.addEventListener('shown.bs.modal', function () {
+                                                map2.invalidateSize();
+                                                new L.GPX('https://ucarecdn.com/1c8f9a3e-7bfd-4282-b033-f3d648e88580/sollersacalobracalatunet.gpx', {
+                                                    async: true,
+                                                    marker_options: {
+                                                        startIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-start.png",
+                                                        endIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-end.png",
+                                                        shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-shadow.png"
+                                                    }
+                                                }).on('loaded', function(e) {
+                                                    map2.fitBounds(e.target.getBounds());
+                                                }).addTo(map2);
                                             });
                                         }
                                     </script>
-                                    <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
+                                    
                                     
                                     <!-- Información adicional (Duración, Dificultad, etc.) -->
                                     <div class="row mb-4">
@@ -502,7 +555,7 @@
                                             </div>
                                         </div>
                                         <!-- Add Comment Form-->
-                                        <div class="add-comment mt-4">
+                                        <div class="add-comment mt-4" id="commentElement" style="display:none;">
                                             <h4 class="text-secondary">Añadir Comentario:</h4>
                                             <form>
                                                 <div class="form-floating mb-3">
@@ -769,6 +822,7 @@
                 document.getElementById('login-box').style.display = 'none';
                 document.getElementById('login-btn').style.display = 'none';
                 document.getElementById('user-info').style.display = 'block'; // Mostrar el contenedor con el mensaje de bienvenida
+                document.getElementById('commentElement').style.display='block';
             }
 
             // Función para cerrar sesión
@@ -778,6 +832,7 @@
                 // Ocultar el mensaje de bienvenida y mostrar nuevamente el login
                 document.getElementById('welcome-message').style.display = 'none';
                 document.getElementById('user-info').style.display = 'none'; // Ocultar el contenedor de bienvenida
+                document.getElementById('commentElement').style.display='none';
                 document.getElementById('login-btn').style.display = 'block'; // Mostrar el botón de login
                 toggleLogin(); // Mostrar el formulario de login
             }
