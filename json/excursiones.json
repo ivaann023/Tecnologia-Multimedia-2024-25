@@ -1,0 +1,104 @@
+{
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+
+    "name": "Sa Calobra",
+    "description": "Sa Calobra es una de las excursiones más impresionantes de Mallorca. Situada en la Sierra de Tramuntana, esta ruta ofrece paisajes espectaculares, un desfiladero impresionante y una playa escondida de aguas cristalinas. Es un destino ideal para los amantes de la naturaleza y el senderismo.",
+    "image": [
+      "https://exploramallorca.com/assets/img/portfolio/exc1.jpg",
+      "https://exploramallorca.com/assets/img/calobra01.jpg",
+      "https://exploramallorca.com/assets/img/calobra02.jpg",
+      "https://exploramallorca.com/assets/img/calobra03.jpg"
+    ],
+    
+    "itinerary": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "TouristAttraction",
+          "name": "Sierra de Tramuntana",
+          "description": "Cadena montañosa en Mallorca, declarada Patrimonio de la Humanidad por la UNESCO."
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Desfiladero de Sa Calobra",
+          "description": "Impresionante desfiladero que conduce a la playa de Sa Calobra."
+        },
+        {
+          "@type": "TouristAttraction",
+          "name": "Playa de Sa Calobra",
+          "description": "Playa escondida de aguas cristalinas, ideal para relajarse después de la caminata."
+        }
+      ]
+    },
+
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "3"
+    },
+
+    "review": [
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Juan Pérez"
+        },
+        "reviewBody": "Una experiencia increíble, los paisajes son espectaculares.",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "María López"
+        },
+        "reviewBody": "Me encantó la ruta, muy bien señalizada y con vistas impresionantes.",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4"
+        }
+      },
+      {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": "Carlos García"
+        },
+        "reviewBody": "Perfecto para una escapada de fin de semana, muy recomendable.",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4"
+        }
+      }
+    ],
+
+    "video": {
+      "@type": "VideoObject",
+      "name": "Vídeo de la Excursión a Sa Calobra",
+      "description": "Un recorrido visual por la excursión a Sa Calobra.",
+      "embedUrl": "https://www.youtube.com/embed/czOLbyS_FH0?start=140"
+    },
+
+    "hasMap": "https://ucarecdn.com/1c8f9a3e-7bfd-4282-b033-f3d648e88580/sollersacalobracalatunet.gpx",
+    "duration": "PT4H",
+    "additionalProperty": {
+      "@type": "PropertyValue",
+      "name": "Dificultad",
+      "value": "Moderada"
+    },
+
+    "location": {
+      "@type": "Place",
+      "name": "Sa Calobra",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "39.8500",
+        "longitude": "2.8000"
+      }
+    }
+}
