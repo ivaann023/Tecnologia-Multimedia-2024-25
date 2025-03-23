@@ -11400,6 +11400,22 @@ html {
   cursor: pointer;
 }
 
+.custom-accordion-button {
+  background: linear-gradient(90deg, #e0f0ff, #f0f8ff);
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+.custom-accordion-button:not(.collapsed) {
+  background: linear-gradient(90deg, #cfe2ff, #e2eefd);
+}
+.custom-accordion .accordion-item {
+  border: none;
+  margin-bottom: 1rem;
+}
+.custom-accordion .accordion-item .accordion-header {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
 
 .footer {
   padding-top: 5rem;

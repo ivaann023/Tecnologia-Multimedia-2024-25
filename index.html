@@ -119,8 +119,9 @@
 
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
-                <!-- Portfolio Section Heading-->
+                
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Mapa Ubicación en Tiempo Real</h2>
+                
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -141,71 +142,23 @@
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Rutas</h2>
-                <!-- Icon Divider-->
+                
+                <!-- Línea Separadora -->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fa-solid fa-tree"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <!-- Portfolio Grid Items-->
-                <div class="row justify-content-center">
-                    <!-- Portfolio Item 1-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/exc1.jpg" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 2-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/exc2.jpg" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 3-->
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/exc3.jpg" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 4-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/exc4.jpg" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 5-->
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/exc5.jpg" alt="..." />
-                        </div>
-                    </div>
-                    <!-- Portfolio Item 6-->
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="assets/img/portfolio/exc6.jpg" alt="..." />
-                        </div>
-                    </div>
-                </div>
+                
+                <!-- Portfolio Items-->
+                <div class="row justify-content-center" id="portfolioGrid"></div>
             </div>
         </section>
+
+        <!-- Contenido de cada Excursión de nuestro portfolio -->
+        <div id="portfolioModals">
+            <!-- Los modales se insertarán dinámicamente aquí -->
+        </div>
         
         <!-- About Section -->
         <section class="page-section bg-primary text-white mb-0" id="about">
@@ -229,40 +182,8 @@
                 </div>
 
                 <!-- Team Section -->
-                <div class="row text-center mt-4">
-                    <!-- Member 1 -->
-                    <div class="col-md-4">
-                        <div class="team-member">
-                            <a href="https://www.linkedin.com/" target="_blank">
-                                <img class="team-img" src="assets/img/contacto/miembro01.jpg" alt="Miembro 1">
-                            </a>
-                            <h4>Àngel Jiménez</h4>
-                            <p class="text-light">Guía de montaña & Fotógrafo</p>
-                            <p>Amante de la naturaleza y experto en rutas secretas de la isla.</p>
-                        </div>
-                    </div>
-                    <!-- Member 2 -->
-                    <div class="col-md-4">
-                        <div class="team-member">
-                            <a href="https://www.linkedin.com/" target="_blank">
-                                <img class="team-img" src="assets/img/contacto/miembro02.jpg" alt="Miembro 2">
-                            </a>
-                            <h4>Iván Pérez</h4>
-                            <p class="text-light">Explorador & Planificador</p>
-                            <p>Organiza cada aventura para que sea una experiencia inolvidable.</p>
-                        </div>
-                    </div>
-                    <!-- Member 3 -->
-                    <div class="col-md-4">
-                        <div class="team-member">
-                            <a href="https://www.linkedin.com/" target="_blank">
-                                <img class="team-img" src="assets/img/contacto/miembro03.jpg" alt="Miembro 3">
-                            </a>
-                            <h4>Alex Hierro</h4>
-                            <p class="text-light">Marketing & Redes</p>
-                            <p>Comparte nuestras aventuras y consejos para explorar Mallorca.</p>
-                        </div>
-                    </div>
+                <div class="row text-center mt-4" id="teamGrid">
+                    <!-- Los añadimos mediante nuestro JS 'members.js' -->
                 </div>
             </div>
         </section>
@@ -357,8 +278,10 @@
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+
+                        <!-- <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-github"></i></a> -->
                     </div>
+                    
                     <!-- Footer About Text-->
                     <div class="col-lg-4">
                         <h4 class="text-uppercase mb-4">Nuestra misión</h4>
@@ -369,376 +292,11 @@
                 </div>
             </div>
         </footer>
+
         <!-- Copyright Section-->
         <div class="copyright py-4 text-center text-white">
             <div class="container">
                 <small>Copyright &copy; Explora Mallorca <span id="current-year"></span></small>
-            </div>
-        </div>        
-        <!-- Portfolio Modals-->
-        <!-- Portfolio Modal 1-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Sa Calobra</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-tree"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/exc1.jpg" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Sa Calobra es una de las excursiones más impresionantes de Mallorca. Situada en la Sierra de Tramuntana, esta ruta ofrece paisajes espectaculares, un desfiladero impresionante y una playa escondida de aguas cristalinas. Es un destino ideal para los amantes de la naturaleza y el senderismo.</p>
-                                    
-                                    <!-- Carrusel de imágenes -->
-                                    <h3 class="text-secondary text-uppercase mb-4">Carrusel de imágenes</h3>
-                                    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-ride="carousel" data-bs-interval="4000">
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img src="assets/img/calobra01.jpg" class="d-block w-100" alt="Imagen 1">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="assets/img/calobra02.jpg" class="d-block w-100" alt="Imagen 2">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="assets/img/calobra03.jpg" class="d-block w-100" alt="Imagen 3">
-                                            </div>
-                                        </div>
-                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Anterior</span>
-                                        </button>
-                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Siguiente</span>
-                                        </button>
-                                    </div>
-                                    
-                                    
-                                    <!-- Map Section -->
-                                    <div class="map mt-4">
-                                        <h3 class="text-secondary text-uppercase mb-4">Mapa de la Ubicación</h3>
-                                        <div id="map2" style="height: 400px;"></div>
-                                    </div>
-
-                                    <!-- Reubicar en un futuro -->
-                                    <script>
-                                        
-                                        function initMap() {
-                                            
-                                            var location = { lat: 39.8500, lng: 2.8000 }; // Coordinates for Sa Calobra, Mallorca
-
-                                            var location2 = { lat: 39.7400, lng: 2.7000 }; // Coordinates for Sa Calobra, Mallorca
-                                            
-                                            var greenIcon = new L.Icon({
-                                                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
-                                                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                                                iconSize: [25, 41],
-                                                iconAnchor: [12, 41],
-                                                popupAnchor: [1, -34],
-                                                shadowSize: [41, 41]
-                                            });
-                                            
-                                            //MAPA 1
-                                            var map = L.map('map').setView([39.7400,2.7000],10);
-                                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                                maxZoom: 19,
-                                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                                            }).addTo(map);
-
-
-                                            if (navigator.geolocation) {
-                                                navigator.geolocation.getCurrentPosition(function (position) {
-                                                    var userLocation = {
-                                                        lat: position.coords.latitude,
-                                                        lng: position.coords.longitude
-                                                    };
-
-                                                    var userMarker = L.marker([userLocation.lat, userLocation.lng], { icon: greenIcon }).addTo(map);
-
-                                                }, function () {
-                                                    alert("No se pudo obtener la ubicación.");
-                                                },{
-                                                    enableHighAccuracy: false,
-                                                    maximumAge: Infinity
-                                                });
-                                            } else {
-                                                alert("Tu navegador no soporta Geolocalización.");
-                                            }
-                                            
-
-                                            var marker12 = L.marker([location.lat, location.lng]).addTo(map);
-
-                                            var marker13 = L.marker([location2.lat, location2.lng]).addTo(map);
-                                            
-
-                                            //MAPA 2
-                                            const map2 = L.map('map2');
-                                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                                            }).addTo(map2);
-
-                                            
-
-                                            var modal = document.getElementById('portfolioModal1');
-                                            modal.addEventListener('shown.bs.modal', function () {
-                                                map2.invalidateSize();
-                                                new L.GPX('https://ucarecdn.com/1c8f9a3e-7bfd-4282-b033-f3d648e88580/sollersacalobracalatunet.gpx', {
-                                                    async: true,
-                                                    marker_options: {
-                                                        startIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-start.png",
-                                                        endIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-end.png",
-                                                        shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-shadow.png"
-                                                    }
-                                                }).on('loaded', function(e) {
-                                                    map2.fitBounds(e.target.getBounds());
-                                                }).addTo(map2);
-                                            });
-                                        }
-                                    </script>
-                                    
-                                    
-                                    <!-- Información adicional (Duración, Dificultad, etc.) -->
-                                    <div class="row mb-4">
-                                        <div class="col-6">
-                                            <h5><strong>Dificultad:</strong> Moderada</h5>
-                                        </div>
-                                        <div class="col-6">
-                                            <h5><strong>Duración:</strong> 4 horas</h5>
-                                        </div>
-                                    </div>
-
-                                    <!-- Vídeo de la excursión -->
-                                    <div class="video mb-4">
-                                        <h3 class="text-secondary text-uppercase mb-4">Vídeo de la Excursión</h3>
-                                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/czOLbyS_FH0?start=140" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <!-- Sonido ambiente 
-                                    <div class="audio mb-4">
-                                        <h3 class="text-secondary text-uppercase mb-4">Sonidos a Resaltar de la Excursión</h3>
-                                        <audio controls>
-                                            <source src="assets/audio/sonido-naturaleza.mp3" type="audio/mp3">
-                                            Tu navegador no soporta el elemento de audio.
-                                        </audio>
-                                    </div>
-                                    -->
-                                    
-                                    <!-- Ratings and Comments Panel-->
-                                    <div class="ratings-comments mt-4">
-                                        <h3 class="text-secondary text-uppercase mb-4">Valoraciones y Comentarios</h3>
-                                        <!-- Rating Section-->
-                                        <div class="rating mb-3">
-                                            <h4 class="text-secondary">Valoración:</h4>
-                                            <div class="stars">
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star text-warning"></i>
-                                                <i class="fas fa-star-half-alt text-warning"></i>
-                                            </div>
-                                        </div>
-                                        <!-- Comments Section-->
-                                        <div class="comments">
-                                            <h4 class="text-secondary">Comentarios:</h4>
-                                            <div class="comment mb-3">
-                                                <p><strong>Juan Pérez:</strong> Una experiencia increíble, los paisajes son espectaculares.</p>
-                                            </div>
-                                            <div class="comment mb-3">
-                                                <p><strong>María López:</strong> Me encantó la ruta, muy bien señalizada y con vistas impresionantes.</p>
-                                            </div>
-                                            <div class="comment mb-3">
-                                                <p><strong>Carlos García:</strong> Perfecto para una escapada de fin de semana, muy recomendable.</p>
-                                            </div>
-                                        </div>
-                                        <!-- Add Comment Form-->
-                                        <div class="add-comment mt-4" id="commentElement" style="display:none;">
-                                            <h4 class="text-secondary">Añadir Comentario:</h4>
-                                            <form>
-                                                <div class="form-floating mb-3">
-                                                    <input class="form-control" id="commentName" type="text" placeholder="Tu nombre" required />
-                                                    <label for="commentName">Nombre</label>
-                                                </div>
-                                                <div class="form-floating mb-3">
-                                                    <textarea class="form-control" id="commentText" placeholder="Tu comentario" style="height: 100px" required></textarea>
-                                                    <label for="commentText">Comentario</label>
-                                                </div>
-                                                <button class="btn btn-primary" type="submit">Enviar</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 2-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-tree"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/exc2.jpg" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 3-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-tree"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/exc3.jpg" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 4-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-tree"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/exc4.jpg" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 5-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-tree"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/exc5.jpg" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Portfolio Modal 6-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-tree"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/exc6.jpg" alt="..." />
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -849,6 +407,12 @@
             };
 
         </script>
+
+        <!-- Script para añadir los miembros del equipo -->
+        <script src="js/members.js"></script>
+
+        <!-- Script para cargar los datos JSON desde la URL -->
+        <script src="js/cargaDatos.js"></script>
 
         <!-- Bootstrap core JS
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
