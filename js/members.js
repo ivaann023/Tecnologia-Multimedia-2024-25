@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-    cargarEquipo();
-  });
+  cargarEquipo();
+});
 
 function cargarEquipo() {
-
     console.log("Cargando equipo...");
 
     const teamMembers = [
