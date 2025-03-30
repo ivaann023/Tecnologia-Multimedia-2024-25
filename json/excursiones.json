@@ -8,10 +8,10 @@
         "name": "Sa Calobra",
         "description": "Sa Calobra es una de las excursiones más impresionantes de Mallorca. Situada en la Sierra de Tramuntana, esta ruta ofrece paisajes espectaculares, un desfiladero impresionante y una playa escondida de aguas cristalinas. Es un destino ideal para los amantes de la naturaleza y el senderismo.",
         "image": [
-          "https://exploramallorca.com/assets/img/portfolio/exc1.jpg",
-          "https://exploramallorca.com/assets/img/calobra01.jpg",
-          "https://exploramallorca.com/assets/img/calobra02.jpg",
-          "https://exploramallorca.com/assets/img/calobra03.jpg"
+          "https://www.explorarmallorca.com/assets/img/portfolio/exc1.jpg",
+          "https://www.explorarmallorca.com/assets/img/calobra01.jpg",
+          "https://www.explorarmallorca.com/assets/img/calobra02.jpg",
+          "https://www.explorarmallorca.com/assets/img/calobra03.jpg"
         ],
         "aggregateRating": {
           "@type": "AggregateRating",
@@ -65,7 +65,7 @@
             "embedUrl": "https://www.youtube.com/embed/czOLbyS_FH0?start=140"
           }
         },
-        "hasMap": "https://ucarecdn.com/1c8f9a3e-7bfd-4282-b033-f3d648e88580/sollersacalobracalatunet.gpx",
+        "hasMap": "https://www.explorarmallorca.com/rutas/soller-sa-calobra-cala-tunet.gpx",
         "additionalProperty": [{
           "@type": "PropertyValue",
           "name": "Dificultad",
