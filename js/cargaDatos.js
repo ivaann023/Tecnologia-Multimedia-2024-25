@@ -29,8 +29,10 @@ function cargarDatos() {
             </div>
           </div>
         `;
-        portfolioGrid.innerHTML += portfolioItemHTML;
 
+        parseTime(item.additionalProperty[1].value);
+        portfolioGrid.innerHTML += portfolioItemHTML;
+        
         // Modal con acordeones y estilo mejorado
         const modalHTML = `
           <div class="portfolio-modal modal fade" id="portfolioModal${index + 1}" tabindex="-1" aria-labelledby="portfolioModal${index + 1}" aria-hidden="true">
@@ -63,7 +65,7 @@ function cargarDatos() {
                         </h2>
                         <div id="collapseDetails${index + 1}" class="accordion-collapse collapse show" aria-labelledby="headingDetails${index + 1}">
                           <div class="accordion-body">
-                            <p class="lead">${item.description}</p>
+                            <p class="lead speak-text">${item.description}</p>
                             <div class="row justify-content-center mb-4">
                               <div class="col-md-10">
                                 <img class="img-fluid rounded" src="${item.image[0]}" alt="Imagen principal de ${item.name}">
@@ -78,9 +80,30 @@ function cargarDatos() {
                               </div>
                             </div>
                           </div>
+
+                          <!-- Contenedor Weather Card -->
+                          <div class="d-flex justify-content-center align-items-center p-4">
+                            <div class="weather-card" id="weather">
+                              <div class="weather-header">
+                                <div class="location" id="location">${item.name}, España</div>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Media_Viewer_Icon_-_Location.svg" alt="Ubicación">
+                              </div>
+
+                              <div class="temperature" id="temperature">Cargando...</div>
+                              <div class="description" id="weather-description">Por favor espera...</div>
+
+                              <div class="divider"></div>
+
+                              <div class="wind-speed" id="windspeed">Velocidad del viento: </div>
+
+                              <div class="weather-icon" id="weather-icon">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Weather_Forecast-Sunny.svg" alt="Clima">
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
-
+                      
                       <!-- Galería de Imágenes -->
                       <div class="accordion-item mb-3 rounded shadow-sm">
                         <h2 class="accordion-header" id="headingGallery${index + 1}">
@@ -230,6 +253,8 @@ function cargarDatos() {
             </div>
           </div>
         `;
+        getWeather(item.containedInPlace.geo.latitude,item.containedInPlace.geo.longitude)
+        printParams(item.containedInPlace.geo.latitude,item.containedInPlace.geo.longitude);
         portfolioModals.innerHTML += modalHTML;
         const accordions = document.querySelectorAll('.accordion-collapse');
 
@@ -245,7 +270,7 @@ function cargarDatos() {
 
             modal.addEventListener('shown.bs.collapse', function () {
                 map.invalidateSize();
-                new L.GPX('https://www.explorarmallorca.com/rutas/soller-sa-calobra-cala-tunet.gpx', {
+                new L.GPX(item.hasMap, {
                     async: true,
                     marker_options: {
                         startIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-start.png",
@@ -259,7 +284,8 @@ function cargarDatos() {
         });
       });
         
-        
+      // Llamamos a addSpeakButtons después de cargar todos los elementos
+      addSpeakButtons();  
   
     })
     .catch(error => {
@@ -298,4 +324,8 @@ function generateComments(reviews) {
       </div>
     `;
   }).join('');
+}
+
+function parseTime(time){
+
 }

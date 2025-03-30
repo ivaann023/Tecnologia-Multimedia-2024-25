@@ -8,22 +8,19 @@ function cargarEquipo() {
     const teamMembers = [
         {
             name: "Àngel Jiménez",
-            position: "Guía de montaña & Fotógrafo",
-            description: "Amante de la naturaleza y experto en rutas secretas de la isla.",
+            position: "Estudiante Ingeniería Informática UIB",
             imgSrc: "assets/img/contacto/miembro01.jpg",
             linkedIn: "https://www.linkedin.com/"
         },
         {
             name: "Iván Pérez",
-            position: "Explorador & Planificador",
-            description: "Organiza cada aventura para que sea una experiencia inolvidable.",
+            position: "Estudiante Ingeniería Informática UIB",
             imgSrc: "assets/img/contacto/miembro02.jpg",
             linkedIn: "https://www.linkedin.com/"
         },
         {
             name: "Alex Hierro",
-            position: "Marketing & Redes",
-            description: "Comparte nuestras aventuras y consejos para explorar Mallorca.",
+            position: "Estudiante Ingeniería Informática UIB",
             imgSrc: "assets/img/contacto/miembro03.jpg",
             linkedIn: "https://www.linkedin.com/"
         }
@@ -42,7 +39,6 @@ function cargarEquipo() {
                     </a>
                     <h4>${member.name}</h4>
                     <p class="text-light">${member.position}</p>
-                    <p>${member.description}</p>
                 </div>
             </div>
         `;

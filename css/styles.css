@@ -11427,3 +11427,66 @@ html {
 .copyright {
   background-color: #1a252f;
 }
+
+.speak-button {
+  cursor: pointer;
+  font-size: 20px;  /* Tamaño del emote */
+  padding: 0;  /* Sin relleno adicional */
+  background: transparent; /* Sin fondo */
+  border: none;  /* Sin borde */
+  font-size: 20px; /* Tamaño del emote */
+  display: inline; /* Esto asegura que el botón esté en la misma línea que el texto */
+  color: inherit; /* Mantiene el color del texto original */
+  vertical-align: middle; /* Alinea el botón verticalmente con el texto */
+}
+
+.speak-button:hover {
+  background-color: transparent;  /* No cambia el fondo al pasar el ratón */
+  color: #0056b3; /* Cambia el color del emote al pasar el ratón si lo deseas */
+}
+
+.weather-card {
+  background-color: white;
+  border-radius: 15px;
+  width: 320px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.weather-header img {
+  width: 30px;
+  height: 30px;
+}
+.location {
+  font-size: 16px;
+  color: #555;
+}
+.temperature {
+  font-size: 64px;
+  font-weight: bold;
+  color: #333;
+}
+.description {
+  font-size: 18px;
+  color: #888;
+}
+.wind-speed {
+  font-size: 14px;
+  color: #777;
+}
+.weather-icon {
+  margin-top: 20px;
+}
+.weather-icon img {
+  width: 50px;
+  height: 50px;
+}
+.divider {
+  margin: 20px 0;
+  border: 1px solid #e0e0e0;
+}

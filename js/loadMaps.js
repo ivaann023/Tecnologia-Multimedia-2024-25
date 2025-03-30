@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  initMap();
+    initMap();
 });
 
 function initMap() {
@@ -35,7 +35,6 @@ function initMap() {
             var userMarker = L.marker([userLocation.lat, userLocation.lng], { icon: greenIcon }).addTo(map);
 
         }, function () {
-            alert("No se pudo obtener la ubicación.");
         },{
             enableHighAccuracy: false,
             maximumAge: Infinity
@@ -48,4 +47,10 @@ function initMap() {
     var marker12 = L.marker([location.lat, location.lng]).addTo(map);
 
     var marker13 = L.marker([location2.lat, location2.lng]).addTo(map);
+    
+}
+
+function printParams(a, b){
+    console.log(a);
+    console.log(b);
 }
