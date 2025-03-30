@@ -30,7 +30,6 @@ function cargarDatos() {
           </div>
         `;
 
-        parseTime(item.additionalProperty[1].value);
         portfolioGrid.innerHTML += portfolioItemHTML;
         
         // Modal con acordeones y estilo mejorado
@@ -76,7 +75,7 @@ function cargarDatos() {
                                 <h5><strong>Dificultad:</strong> ${item.additionalProperty[0].value}</h5>
                               </div>
                               <div class="col-md-6 mb-3">
-                                <h5><strong>Duración:</strong> ${item.additionalProperty[1].value}</h5>
+                                <h5><strong>Duración:</strong> ${parseTime(item.additionalProperty[1].value)}</h5>
                               </div>
                             </div>
                           </div>
@@ -327,5 +326,25 @@ function generateComments(reviews) {
 }
 
 function parseTime(time){
+  var duration="";
+  const re=/[0-9]+(?=D)/;
+  var dias=time.match(re);
+  if(dias!==null){
+    console.log(dias[0]);
+    duration= dias[0] + " dia(s)  ";
+  }
 
+  const re2=/[0-9]+(?=H)/;
+  var horas=time.match(re2);
+  console.log(horas);
+  if(horas!==null){
+    duration=duration+ horas[0] + " hora(s)  ";
+  }
+
+  const re3=/[0-9]+(?=M)/;
+  var minutos=time.match(re3);
+  if(minutos!==null){
+    duration=duration+ minutos[0] + " dia(s)  ";
+  }
+  return duration;
 }
