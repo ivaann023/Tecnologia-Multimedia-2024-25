@@ -11490,3 +11490,56 @@ html {
   margin: 20px 0;
   border: 1px solid #e0e0e0;
 }
+
+/* ==============================
+        Formulario de Contacto
+   ============================== */
+  #contact .card {
+  border: none;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+#contact .form-control {
+  border: 1px solid #dee2e6;
+  border-radius: 1rem;
+  padding: 1.25rem 1rem;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.95rem;
+  background-clip: padding-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact .form-control:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 .2rem rgba(108, 92, 231, 0.25);
+}
+
+#contact .form-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #444;
+}
+
+#contact .btn-primary {
+  background-color: #6c5ce7;
+  border: none;
+  border-radius: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#contact .btn-primary:hover,
+#contact .btn-primary:focus {
+  background-color: #5941d6;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 576px) {
+  #contact .card {
+    padding: 2rem 1.5rem;
+  }
+  #contact .btn-primary {
+    width: 100%;
+  }
+}
