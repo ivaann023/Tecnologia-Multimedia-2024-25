@@ -11089,67 +11089,242 @@ html {
 /* ---------------------------------------------------------------- */
 
 
-/* ————————————————
-   Login/Registro flotante en el navbar
-   ———————————————— */
+/*----------------------------------------------------------------*/
+/*                      INICIO DE SESIÓN                          */
+/*----------------------------------------------------------------*/
 
-/* Contenedor posicionado */
-#login-btn {
-  position: relative;
+.user-actions {
+  gap: 0.5rem;
 }
 
-/* Popup oculto hasta hacer click */
+/* 1) Overlay fijo que cubre toda la pantalla */
+#blur-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.3);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+  z-index: 998;
+}
+
+/* 2) Overlay activo: más oscuro y menos borroso */
+#blur-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0.5);        /* más oscuro */
+  -webkit-backdrop-filter: blur(4px);    /* menos difuso */
+          backdrop-filter: blur(4px);
+}
+
+/* 3) Modal (login-box) */
 #login-box {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 280px;
-  margin-top: .5rem;
-  background: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  padding: 1rem;
-  z-index: 1000;
+  display: none;                   /* oculto por defecto */
+  position: fixed;                 /* flota sobre todo */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  z-index: 999;                    /* por encima del overlay */
+  pointer-events: auto;            /* dentro se pueda clicar */
 }
 
-/* Inputs dentro del popup */
-.login-box .login-input {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 0.75rem;
-  border: 1px solid #ced4da;
-  border-radius: 0.375rem;
-  font-family: 'Lato', sans-serif;
+/* 4) Modal activo: lo mostramos */
+#login-box.active {
+  display: block;
 }
 
-/* Botón dentro del popup */
-.login-box .login-btn {
-  width: 100%;
-  padding: 0.5rem;
+/* 5) Título */
+#login-box h3 {
   font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #2c3e50;
 }
 
-/* Enlace de alternar login/registro */
+/* 6) Inputs */
+.login-input {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.login-input:focus {
+  border-color: #5a83b3;
+  outline: none;
+}
+
+/* 7) Botón de enviar */
+.login-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .3s;
+  background-color: #5a83b3;
+  color: #fff;
+}
+
+.login-btn:hover {
+  background-color: #466d99;
+}
+
+/* 8) Enlace de registro */
 #toggle-register {
   display: block;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   text-align: center;
-  color: #007bff;
+  font-weight: 600;
+  color: #5a83b3;
   text-decoration: none;
 }
+
 #toggle-register:hover {
   text-decoration: underline;
 }
 
-/* Responsive: ocupa casi todo el ancho en móvil */
-@media (max-width: 576px) {
-  #login-box {
-    right: 50%;
-    transform: translateX(50%);
-    width: 90vw;
+/* 9) Dropdown usuario (sesión iniciada) */
+#user-info .dropdown-menu {
+  border-radius: 0.5rem;
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  min-width: 160px;
+  text-align: center;
+  background-color: #fff;
+}
+
+#user-info .dropdown-item {
+  font-weight: 600;
+  color: #dc3545;
+  padding: 0.75rem 1rem;
+}
+
+#user-info .dropdown-item:hover {
+  background-color: #f8d7da;
+  color: #a71d2a;
+}
+
+/* 10) Navbar colapsado (móvil) */
+@media (max-width: 992px) {
+  #user-info .dropdown-menu {
+    position: static !important;
+    float: none !important;
+    box-shadow: none;
+    margin: 0;
+    width: 100%;
+  }
+  #user-info {
+    width: 100%;
   }
 }
+
+/* Icono en blanco y mismo tamaño que texto */
+.profile-icon {
+  font-size: 1rem;
+  color: #fff;
+}
+
+@media (min-width: 992px) {
+  #login-item .nav-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* En móvil, conserva los mismos padding que el resto */
+@media (max-width: 991px) {
+  #login-item .nav-link {
+    padding-top:    1rem !important;
+    padding-bottom: 1rem !important;
+    padding-left:   1rem    !important;
+    padding-right:  1rem    !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ------------------------------------------------ */
+/* Estilos para el botón de Cerrar sesión           */
+/* ------------------------------------------------ */
+  
+/* ─── Espaciado uniforme entre todos los items ─── */
+@media (min-width: 992px) {
+  .navbar-nav .nav-item + .nav-item {
+    margin-left: 1.2rem;
+  }
+}
+
+@media (max-width: 991px) {
+  #user-item .nav-link {
+    padding-top:    1rem !important;
+    padding-bottom: 1rem !important;
+    padding-left:   1rem !important;
+    padding-right:  1rem !important;
+  }
+}
+
+/* ─── Perfil dentro del nav ─── */
+#user-item .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0;            /* quita padding extra, usamos margin entre items */
+}
+
+/* Icono y nombre con mismo tamaño y alineados */
+#user-item .user-name {
+  font-size: 1rem;
+  color: #fff;
+  line-height: 1;
+  vertical-align: middle;
+  margin: 0;
+}
+
+/* ─── Botón “Cerrar sesión” más compacto ─── */
+.btn-nav-logout {
+  background-color: var(--bs-primary);
+  padding: 0.25rem 0.6rem;  
+  font-size: 0.85rem;       
+  line-height: 1;           
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  vertical-align: middle;
+  color: #fff !important;
+}
+
+.btn-nav-logout:hover,
+.btn-nav-logout:focus {
+  background-color: #466b86;
+}
+
+/* Cierra automáticamente el login-box al hacer clic fuera 
+body:has(#login-box[style*="display: block"])::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1500;
+}*/
 
 .video-background {
   position: absolute; 
@@ -11511,5 +11686,36 @@ html {
   }
   #contact .btn-primary {
     width: 100%;
+  }
+}
+
+/* ------------------------------------------------ */
+/*         Alineación correcta del NavBar           */
+/* ------------------------------------------------ */
+
+/* Solo para pantallas ≥ 992px: centrar verticalmente */
+@media (min-width: 992px) {
+  #mainNav .navbar-nav {
+    align-items: center;  /* centra los <li> */
+  }
+  #mainNav .nav-item {
+    align-items: center;  /* centra cada <a> */
+  }
+  #mainNav .nav-link {
+    display: flex;
+    align-items: center;  /* centra el texto/iconos */
+    justify-content: center;
+  }
+}
+
+/* Para pantallas < 992px (móvil): todo a la izquierda */
+@media (max-width: 991.98px) {
+  #mainNav .navbar-nav {
+    align-items: flex-start;  /* items pegados a la izda */
+  }
+  #mainNav .nav-link {
+    justify-content: flex-start; /* texto pegado a la izda */
+    width: 100%;                 /* ocupa todo el ancho */
+    padding-left: 1rem !important;  /* un poco de indent */
   }
 }

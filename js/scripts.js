@@ -134,7 +134,12 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
+    // Evita que al interactuar con el dropdown de usuario se cierre el menú hamburguesa
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        menu.addEventListener('click', e => e.stopPropagation());
+    });
+  
+
     // Para el footer:
     document.getElementById('current-year').textContent = new Date().getFullYear();
-
 });

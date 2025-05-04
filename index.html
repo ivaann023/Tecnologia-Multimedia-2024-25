@@ -8,63 +8,168 @@
         <title>Explora Mallorca</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
 
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="crossorigin=""/>
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="crossorigin=""></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/gpx.min.js"></script>
+        
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
+        
+        <div id="blur-overlay"></div>
+
+        <!-- LOGIN BOX -->
+        <div id="login-box">
+            <h3 id="form-title">Iniciar Sesión</h3>
+            <form id="auth-form">
+            <input
+                type="text"
+                id="user-name-input"
+                name="name"
+                placeholder="Nombre"
+                class="login-input"
+                style="display: none;"
+            >
+            <input
+                type="email"
+                id="login-email"
+                name="email"
+                placeholder="Correo electrónico"
+                class="login-input"
+                required
+            >
+            <input
+                type="password"
+                id="login-password"
+                name="password"
+                placeholder="Contraseña"
+                class="login-input"
+                required
+            >
+            <button
+                type="submit"
+                id="login-submit"
+                class="login-btn"
+            >Ingresar</button>
+            </form>
+            <p>
+            <a href="#" id="toggle-register">¿No tienes cuenta? Regístrate</a>
+            </p>
+        </div>
+
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <nav
+            class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
+            id="mainNav"
+        >
             <div class="container">
-                <a class="navbar-brand" href="#page-top"><i class="fa-solid fa-compass"></i> Explora Mallorca</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
+                <a class="navbar-brand" href="#page-top">
+                    <i class="fa-solid fa-compass"></i> Explora Mallorca
+                </a>
+                <button
+                class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+                >
+                Menu
+                <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Rutas</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">Conócenos</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contacto</a></li>
-
-                        <!-- Mensaje de bienvenida si el usuario ha iniciado sesión -->
-                        <li class="nav-item mx-0 mx-lg-1" id="user-info" style="display: none;">
-                            <span class="nav-link py-3 px-0 px-lg-3 rounded" id="welcome-message">
-                                Bienvenido, <span id="user-name"></span> 
-                                <a class="text-danger" href="#" onclick="logout()">Cerrar sesión</a>
-                            </span>
+                        <li class="nav-item mx-0 mx-lg-1">
+                        <a
+                            class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="#portfolio"
+                        >Rutas</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                        <a
+                            class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="#about"
+                        >Conócenos</a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1">
+                        <a
+                            class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="#contact"
+                        >Contacto</a>
                         </li>
 
-                        <!-- Botón de login si el usuario NO ha iniciado sesión -->
-                        <li class="nav-item mx-0 mx-lg-1" id="login-btn">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded ms-5" href="#">
-                              <i class="fas fa-user"></i>
+                        <!-- Ícono de usuario (trigger para abrir el modal) -->
+                        <!--
+                        <li class="nav-item mx-0 mx-lg-1">
+                            <a
+                                class="nav-link py-3 px-0 px-lg-3 rounded"
+                                href="#"
+                                id="login-trigger"
+                            >
+                                <i class="fas fa-user"></i>
                             </a>
-                            <div id="login-box" class="login-box">
-                              <h3 id="form-title">Iniciar Sesión</h3>
-                              <form id="auth-form">
-                                <input type="text" id="user-name-input" name="name" placeholder="Nombre" class="login-input" style="display: none;">
-                                <input type="email" id="login-email" name="email" placeholder="Correo electrónico" class="login-input" required>
-                                <input type="password" id="login-password" name="password" placeholder="Contraseña" class="login-input" required>
-                                <button id="login-action-btn" type="submit" class="login-btn">Ingresar</button>
-                              </form>
-                              <p>
-                                <a href="#" id="toggle-register">¿No tienes cuenta? Regístrate</a>
-                              </p>
+                        </li>
+                        -->
+
+                        <!-- Bienvenida al usuario (solo cuando hay sesión) -->
+                        <!-- 
+                        <li class="nav-item dropdown mx-0 mx-lg-1 d-none" id="user-info">
+                            <a
+                            class="nav-link dropdown-toggle d-flex align-items-center"
+                            href="#"
+                            id="userDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                            >
+                            <i class="fas fa-user-circle me-1"></i>
+                            <span id="user-name">Usuario</span>
+                            </a>
+                            <ul
+                            class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="userDropdown"
+                            data-bs-auto-close="outside"
+                            >
+                            <li>
+                                <button
+                                class="dropdown-item btn-logout"
+                                id="logout-link"
+                                >Cerrar sesión</button>
+                            </li>
+                            </ul>
+                        </li>
+                        -->
+                        
+                         <!-- ICONO LOGIN (solo antes de loguear) -->
+                         <li class="nav-item" id="login-item">
+                            <a
+                              class="nav-link py-3 px-0 px-lg-3 d-flex justify-content-center align-items-center"
+                              href="#"
+                              id="login-trigger"
+                            >
+                              <i class="fas fa-user profile-icon"></i>
+                            </a>
+                        </li>
+                
+                        <!-- PERFIL + NOMBRE + LOGOUT (solo tras loguear) -->
+                        <li class="nav-item d-none" id="user-item">
+                            <div class="d-flex align-items-center nav-link p-0">
+                              <i class="fas fa-user-circle profile-icon me-2"></i>
+                              <span id="user-name" class="user-name me-3">Usuario</span>
+                              <button id="logout-link" class="btn btn-nav-logout">Cerrar sesión</button>
                             </div>
                         </li>
+
                     </ul>
                 </div>
             </div>
         </nav>
+
         <!-- Masthead-->
         <header class="masthead text-white text-center">
             <div class="container d-flex align-items-center flex-column">
@@ -108,7 +213,7 @@
 
                 <!-- Map Section -->
                 <div class="map mt-4">
-                    <div id="map" style="height: 800px;"></div>
+                    <div id="map" style="height: 800px; z-index: 997"></div>
                 </div>
             </div>
         </section>
@@ -290,6 +395,10 @@
             </div>
         </div>
 
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="crossorigin=""></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/gpx.min.js"></script>
         <script src="js/loadMaps.js"></script>
         <!-- Script para añadir los miembros del equipo -->
         <script src="js/members.js"></script>

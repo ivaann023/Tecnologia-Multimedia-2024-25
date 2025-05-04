@@ -8,10 +8,10 @@
         "name": "Sa Calobra",
         "description": "Sa Calobra es una de las excursiones más impresionantes de Mallorca. Situada en la Sierra de Tramuntana, esta ruta ofrece paisajes espectaculares, un desfiladero impresionante y una playa escondida de aguas cristalinas. Es un destino ideal para los amantes de la naturaleza y el senderismo.",
         "image": [
-          "https://www.explorarmallorca.com/assets/img/portfolio/exc1.jpg",
-          "https://www.explorarmallorca.com/assets/img/calobra01.jpg",
-          "https://www.explorarmallorca.com/assets/img/calobra02.jpg",
-          "https://www.explorarmallorca.com/assets/img/calobra03.jpg"
+          "https://www.explorarmallorca.com/assets/excursion1/calobra00.jpg",
+          "https://www.explorarmallorca.com/assets/excursion1/calobra01.jpg",
+          "https://www.explorarmallorca.com/assets/excursion1/calobra02.jpg",
+          "https://www.explorarmallorca.com/assets/excursion1/calobra03.jpg"
         ],
         "subjectOf": {
           "@type": "CreativeWork",
@@ -41,6 +41,126 @@
             "longitude": "2.8000"
           }
         }
+    },
+    {
+      "@identifier": 2,
+        "@type": "Place", 
+        "name": "Talaia d'Alcudia",
+        "description": "La Talaia d'Alcudia, también conocida como Talaia de la Victoria, se alza imponente al noreste de Mallorca. Con una altitud de 446 metros, esta cima ofrece una de las panorámicas más completas de la isla: desde la Serra de Tramuntana hasta las bahías de Alcudia y Pollença, e incluso, en días despejados, la silueta de Menorca en el horizonte.",
+        "image": [
+          "https://www.explorarmallorca.com/assets/excursion2/talaia00.jpg",
+          "https://www.explorarmallorca.com/assets/excursion2/talaia01.jpg",
+          "https://www.explorarmallorca.com/assets/excursion2/talaia02.jpg",
+          "https://www.explorarmallorca.com/assets/excursion2/talaia03.jpg"
+        ],
+        "subjectOf": {
+          "@type": "CreativeWork",
+          "video":{
+            "@type": "VideoObject",
+            "name": "Vídeo de la Excursión a la Talaia d'Alcudia",
+            "description": "Un recorrido visual por la excursión a la Talaia d'Alcudia.",
+            "embedUrl": "https://www.youtube.com/embed/A-pXaW9Ydv4"
+          }
+        },
+        "hasMap": "https://www.explorarmallorca.com/rutas/talaia-de-alcudia.gpx",
+        "additionalProperty": [{
+          "@type": "PropertyValue",
+          "name": "Dificultad",
+          "value": "Fácil"
+        },{
+          "@type": "PropertyValue",
+          "name": "duration",
+          "value": "PT4H"
+        }],
+        "containedInPlace": {
+          "@type": "Place",
+          "name": "Talaia d'Alcudia",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "39.8660",
+            "longitude": " 3.1735"
+          }
+        }
+    }, 
+    {
+      "@identifier": 3,
+      "@type": "Place", 
+      "name": "Camí de s’Arxiduc",
+      "description": "El Camí de s’Arxiduc es una de las rutas de senderismo más emblemáticas de Mallorca. Situada en la Serra de Tramuntana, esta senda histórica fue diseñada en 1883 por el Archiduque Luis Salvador de Austria para disfrutar de las vistas panorámicas del norte de la isla. El recorrido ofrece paisajes espectaculares, incluyendo bosques de encinas, miradores sobre el mar y puntos de interés como la Cova de s’Ermità Guillem.",
+      "image": [
+        "https://www.explorarmallorca.com/assets/excursion3/arxiduc00.jpg",
+        "https://www.explorarmallorca.com/assets/excursion3/arxiduc01.jpg",
+        "https://www.explorarmallorca.com/assets/excursion3/arxiduc02.jpg",
+        "https://www.explorarmallorca.com/assets/excursion3/arxiduc03.jpg"
+      ],
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "video":{
+          "@type": "VideoObject",
+          "name": "Vídeo de la Excursión al Camí de s’Arxiduc",
+          "description": "Un recorrido visual por la excursión al Camí de s’Arxiduc.",
+          "embedUrl": "https://www.youtube.com/embed/2KUdCphVuxI"
+        }
+      },
+      "hasMap": "https://www.explorarmallorca.com/rutas/serra-de-tramuntana-cami-de-sarxiduc-des-de-valldemossa.gpx",
+      "additionalProperty": [{
+        "@type": "PropertyValue",
+        "name": "Dificultad",
+        "value": "Moderada"
+      },{
+        "@type": "PropertyValue",
+        "name": "duration",
+        "value": "PT5H"
+      }],
+      "containedInPlace": {
+        "@type": "Place",
+        "name": "Camí de s’Arxiduc",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "39.7288",
+          "longitude": "2.6264"
+        }
+      }
+    },
+    {
+      "@identifier": 4,
+      "@type": "Place", 
+      "name": "Camí des Barranc de Biniaraix",
+      "description": "El Camí des Barranc de Biniaraix es uno de los tres grandes conjuntos patrimoniales ligados a la técnica de construcción conocida como “Piedra en seco” que están protegidos con la figura de bienes de interés cultural (BIC) en Mallorca. Está situado al extremo sur-oriental de Sóller. Se trata de un cañón cárstico modelado por la acción de las aguas que drenan hacia poniente.  Además, ha constituido la vía principal de comunicación del valle de Sóller y Fornalutx con los valles del L’Ofre, Cúber, Orient o el monasterio de Lluc.",
+      "image": [
+        "https://www.explorarmallorca.com/assets/excursion4/biniaraix00.jpg",
+        "https://www.explorarmallorca.com/assets/excursion4/biniaraix01.jpg",
+        "https://www.explorarmallorca.com/assets/excursion4/biniaraix02.jpg",
+        "https://www.explorarmallorca.com/assets/excursion4/biniaraix03.jpg"
+      ],
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "video":{
+          "@type": "VideoObject",
+          "name": "Vídeo de la Excursión al Camí des Barranc de Biniaraix",
+          "description": "Un recorrido visual por la excursión al Camí des Barranc de Biniaraix.",
+          "embedUrl": "https://www.youtube.com/embed/FSkRxnbVgD8"
+        }
+      },
+      "hasMap": "https://www.explorarmallorca.com/rutas/barranco-de-biniaraix-cami-des-barranc-cami-vell.gpx",
+      "additionalProperty": [{
+        "@type": "PropertyValue",
+        "name": "Dificultad",
+        "value": "Fácil"
+      },{
+        "@type": "PropertyValue",
+        "name": "duration",
+        "value": "PT3H"
+      }],
+      "containedInPlace": {
+        "@type": "Place",
+        "name": "Camí des Barranc de Biniaraix",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "39.7669",
+          "longitude": "2.7473"
+        }
+      }
     }
   ] 
 }

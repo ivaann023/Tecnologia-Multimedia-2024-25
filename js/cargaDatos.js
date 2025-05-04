@@ -5,12 +5,11 @@ document.addEventListener("DOMContentLoaded", function() {
 // Función que se encargará de cargar y mostrar los datos del JSON
 function cargarDatos() {
   const urlJson = "https://www.explorarmallorca.com/json/excursiones.json";
-
-  fetch(urlJson)
-    .then(response => response.json())
-    .then(data => {
+  const reviewsJson="https://www.explorarmallorca.com/json/reviews.json";
+  Promise.all([fetch(urlJson).then(response=>response.json()), fetch(reviewsJson).then(response=>response.json())])
+  .then(([data,reviewsData]) =>{
       console.log("He leído bien el JSON");
-
+      
       const portfolioGrid = document.getElementById("portfolioGrid");
       const portfolioModals = document.getElementById("portfolioModals");
 
@@ -33,7 +32,7 @@ function cargarDatos() {
         portfolioGrid.innerHTML += portfolioItemHTML;
         
         // Modal con acordeones y estilo mejorado
-        const modalHTML = `
+        var modalHTML = `
           <div class="portfolio-modal modal fade" id="portfolioModal${index + 1}" tabindex="-1" aria-labelledby="portfolioModal${index + 1}" aria-hidden="true">
             <div class="modal-dialog modal-xl">
               <div class="modal-content shadow-lg">
@@ -215,16 +214,26 @@ function cargarDatos() {
                         </h2>
                         <div id="collapseFeedback${index + 1}" class="accordion-collapse collapse" aria-labelledby="headingFeedback${index + 1}">
                           <div class="accordion-body">
+                            <div class="mb-3">`;
+                const review = reviewsData.itemListElement.find(r => r['@identifier'] === item['@identifier']);
+                if (review) {
+                  modalHTML += `
+                    <h4 class="text-secondary">Valoración:</h4>
+                    <div class="stars">
+                      ${generateStars(review.aggregateRating.ratingValue)}
+                    </div>
+                  `;
+                }     
+                     
+                modalHTML+=`</div>
                             <div class="mb-3">
-                              <h4 class="text-secondary">Valoración:</h4>
-                              <div class="stars">
-                                ${generateStars(item.aggregateRating.ratingValue)}
-                              </div>
-                            </div>
-                            <div class="mb-3">
-                              <h4 class="text-secondary">Comentarios:</h4>
-                              ${generateComments(item.review)}
-                            </div>
+                            <h4 class="text-secondary">Comentarios:</h4>`
+                
+                if (review) {
+                  modalHTML += `${generateComments(review.associatedReview)}`;
+                }
+
+                modalHTML+=`</div>
                             <!-- Formulario para añadir comentarios -->
                             <div class="mt-4" id="commentElement${index + 1}" style="display: none;">
                               <h4 class="text-secondary">Añadir Comentario:</h4>
@@ -245,7 +254,6 @@ function cargarDatos() {
                       </div>
                     </div>
                     <!-- Fin del Acordeón Principal -->
-  
                   </div>
                 </div>
               </div>
@@ -253,13 +261,11 @@ function cargarDatos() {
           </div>
         `;
         getWeather(item.containedInPlace.geo.latitude,item.containedInPlace.geo.longitude)
-        printParams(item.containedInPlace.geo.latitude,item.containedInPlace.geo.longitude);
         portfolioModals.innerHTML += modalHTML;
         const accordions = document.querySelectorAll('.accordion-collapse');
 
         // Inicialización del mapa en cada modal al mostrarse
         document.querySelectorAll('.portfolio-modal').forEach((modal,index) => {
-            
             const mapContainer = modal.querySelector('[id^="map2"]');
             console.log(mapContainer);
             const map = L.map(mapContainer);

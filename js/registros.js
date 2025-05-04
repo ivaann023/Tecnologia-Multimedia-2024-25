@@ -1,103 +1,122 @@
-// 1) Función para mostrar/ocultar el cuadro de login
 function toggleLogin(event) {
-    event.preventDefault();
-    console.log('toggleLogin disparada');
-    const loginBox = document.getElementById('login-box');
-    loginBox.style.display = loginBox.style.display === 'block'
-      ? 'none'
-      : 'block';
-  }
-  
-  // 2) Función para cerrar sesión
-  function logout(event) {
-    event.preventDefault();
-    // Oculta la sección de comentarios si existe
-    const commentSection = document.getElementById('commentElement');
-    if (commentSection) {
-      commentSection.style.display = 'none';
-      commentSection.querySelectorAll('input, textarea, button')
-        .forEach(el => el.disabled = true);
+  if (event) event.preventDefault();
+  const loginBox = document.getElementById('login-box');
+  const overlay  = document.getElementById('blur-overlay');
+  const isOpen   = loginBox.classList.toggle('active');
+  overlay.classList.toggle('active', isOpen);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Estado
+  let isLoginMode = true;
+
+  // Elementos
+  const trigger     = document.getElementById('login-trigger');
+  const overlay     = document.getElementById('blur-overlay');
+  const loginBox    = document.getElementById('login-box');
+  const formTitle   = document.getElementById('form-title');
+  const nameInput   = document.getElementById('user-name-input');
+  const toggleLink  = document.getElementById('toggle-register');
+  const form        = document.getElementById('auth-form');
+  const submitBtn   = document.getElementById('login-submit');
+  const loginItem   = document.getElementById('login-item');
+  const userItem    = document.getElementById('user-item');
+  const logoutLink  = document.getElementById('logout-link');
+  const userNameNav = document.getElementById('user-name');
+
+  // 1) Abrir/Cerrar modal
+  trigger.addEventListener('click', toggleLogin);
+  loginBox.addEventListener('click', e => e.stopPropagation());
+  overlay.addEventListener('click', toggleLogin);
+
+  // 2) Alternar Login <-> Registro
+  toggleLink.addEventListener('click', e => {
+    e.preventDefault();
+    isLoginMode = !isLoginMode;
+    if (isLoginMode) {
+      formTitle.textContent   = 'Iniciar Sesión';
+      submitBtn.textContent   = 'Ingresar';
+      nameInput.style.display = 'none';
+      toggleLink.textContent  = '¿No tienes cuenta? Regístrate';
+    } else {
+      formTitle.textContent   = 'Registrarse';
+      submitBtn.textContent   = 'Registrarse';
+      nameInput.style.display = 'block';
+      toggleLink.textContent  = '¿Ya tienes cuenta? Inicia sesión';
     }
-  
-    // Oculta mensaje de bienvenida y muestra botón de login
-    document.getElementById('user-info').style.display  = 'none';
-    document.getElementById('login-btn').style.display = 'block';
-  
-    // Reabre el cuadro de login
-    toggleLogin(event);
+  });
+
+  // 3) Envío del formulario (Login o Registro)
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    submitBtn.disabled  = true;
+    submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin me-2"></i>${
+      isLoginMode ? 'Entrando…' : 'Registrando…'
+    }`;
+
+    const url  = isLoginMode ? 'php/login.php' : 'php/registrarse.php';
+    const data = new FormData(form);
+
+    try {
+      const resp = await fetch(url, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      const json = await resp.json();
+      if (!json.success) throw new Error(json.message || 'Error en servidor');
+
+      // Éxito: limpiamos form
+      form.reset();
+      submitBtn.innerHTML = `<i class="fas fa-check me-2"></i>¡OK!`;
+
+      setTimeout(() => {
+        toggleLogin();
+        // Actualizamos navbar
+        loginItem.classList.add('d-none');
+        userItem.classList.remove('d-none');
+        userNameNav.textContent = json.name;
+        // Guardamos
+        sessionStorage.setItem('user', json.name);
+      }, 600);
+
+    } catch (err) {
+      console.error(err);
+      alert(err.message || 'Error en autenticación');
+      submitBtn.innerHTML = `<i class="fas fa-exclamation-triangle me-2"></i>Error`;
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = isLoginMode ? 'Ingresar' : 'Registrarse';
+      }, 2000);
+    }
+  });
+
+  // 4) Logout (cierra modal, limpia UI y session)
+  logoutLink.addEventListener('click', e => {
+    e.preventDefault();
+    // cerrar modal si está abierto
+    loginBox.classList.remove('active');
+    overlay.classList.remove('active');
+    // reset form/estado
+    isLoginMode = true;
+    form.reset();
+    formTitle.textContent   = 'Iniciar Sesión';
+    submitBtn.textContent   = 'Ingresar';
+    submitBtn.disabled      = false;
+    nameInput.style.display = 'none';
+    toggleLink.textContent  = '¿No tienes cuenta? Regístrate';
+    // navbar
+    userItem.classList.add('d-none');
+    loginItem.classList.remove('d-none');
+    // limpiar sesión
+    sessionStorage.clear();
+  });
+
+  // 5) Restaurar sesión al recargar
+  const saved = sessionStorage.getItem('user');
+  if (saved) {
+    userNameNav.textContent = saved;
+    loginItem.classList.add('d-none');
+    userItem.classList.remove('d-none');
   }
-  
-  document.addEventListener('DOMContentLoaded', () => {
-    const formTitle  = document.getElementById('form-title');
-    const nameInput  = document.getElementById('user-name-input');
-    const toggleLink = document.getElementById('toggle-register');
-    const form       = document.getElementById('auth-form');
-    const btn        = document.getElementById('login-action-btn');
-  
-    // ————————————————
-    // 3a) Solo el <a> dentro de #login-btn dispara toggleLogin()
-    // ————————————————
-    const loginLink = document.querySelector('#login-btn > a');
-    loginLink.addEventListener('click', toggleLogin);
-  
-    // Evitamos que clics dentro del popup (inputs, enlaces) lo cierren
-    const loginBox = document.getElementById('login-box');
-    loginBox.addEventListener('click', e => e.stopPropagation());
-  
-    // ————————————————
-    // 3b) Alternar entre Login y Registro
-    // ————————————————
-    toggleLink.addEventListener('click', e => {
-      e.preventDefault();
-      const isLogin = formTitle.textContent === 'Iniciar Sesión';
-  
-      formTitle.textContent   = isLogin ? 'Registrarse'   : 'Iniciar Sesión';
-      btn.textContent         = isLogin ? 'Registrarse'   : 'Ingresar';
-      nameInput.style.display = isLogin ? 'block'         : 'none';
-      toggleLink.textContent  = isLogin
-        ? '¿Ya tienes cuenta? Inicia sesión'
-        : '¿No tienes cuenta? Regístrate';
-    });
-  
-    // ————————————————
-    // 3c) Envío AJAX para login o registro
-    // ————————————————
-    form.addEventListener('submit', async e => {
-      e.preventDefault();
-      const isRegister = formTitle.textContent === 'Registrarse';
-      const url        = isRegister ? 'php/registrarse.php' : 'php/login.php';
-      const data       = new FormData(form);
-  
-      btn.disabled  = true;
-      btn.innerHTML = `<i class="fas fa-spinner fa-spin me-2"></i>`
-                    + (isRegister ? 'Registrando…' : 'Entrando…');
-  
-      try {
-        const resp = await fetch(url, {
-          method:  'POST',
-          body:    data,
-          headers: { 'Accept': 'application/json' }
-        });
-        const json = await resp.json();
-        if (!json.success) throw new Error(json.message);
-  
-        form.reset();
-        btn.innerHTML = `<i class="fas fa-check me-2"></i>¡OK!`;
-        setTimeout(() => {
-          document.getElementById('login-box').style.display  = 'none';
-          document.getElementById('user-name').textContent   = json.name;
-          document.getElementById('user-info').style.display = 'block';
-        }, 800);
-  
-      } catch (err) {
-        console.error(err);
-        btn.disabled   = false;
-        btn.innerHTML  = `<i class="fas fa-exclamation-triangle me-2"></i>Error`;
-        alert(err.message || 'Error en la autenticación');
-        setTimeout(() => {
-          btn.disabled    = false;
-          btn.textContent = isRegister ? 'Registrarse' : 'Ingresar';
-        }, 2000);
-      }
-    });
 });
