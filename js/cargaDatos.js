@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function cargarDatos() {
   const urlJson = "https://www.explorarmallorca.com/json/excursiones.json";
   const reviewsJson="https://www.explorarmallorca.com/json/reviews.json";
+  var mapas=[];
   Promise.all([fetch(urlJson).then(response=>response.json()), fetch(reviewsJson).then(response=>response.json())])
   .then(([data,reviewsData]) =>{
       console.log("He leído bien el JSON");
@@ -145,9 +146,9 @@ function cargarDatos() {
                         <div id="collapseMap${index + 1}" class="accordion-collapse collapse" aria-labelledby="headingMap${index + 1}">
                           <div class="accordion-body">
                             <div id="map2${index + 1}" 
-                                 data-lat="${item.containedInPlace.geo.latitude}" 
-                                 data-lon="${item.containedInPlace.geo.longitude}" 
-                                 style="height: 400px; border: 2px solid #5a83b3; border-radius: 0.5rem;"></div>
+                                data-lat="${item.containedInPlace.geo.latitude}" 
+                                data-lon="${item.containedInPlace.geo.longitude}" 
+                                style="height: 400px; border: 2px solid #5a83b3; border-radius: 0.5rem;"></div>
                           </div>
                         </div>
                       </div>
@@ -224,7 +225,7 @@ function cargarDatos() {
                     </div>
                   `;
                 }     
-                     
+
                 modalHTML+=`</div>
                             <div class="mb-3">
                             <h4 class="text-secondary">Comentarios:</h4>`
@@ -265,30 +266,30 @@ function cargarDatos() {
         const accordions = document.querySelectorAll('.accordion-collapse');
 
         // Inicialización del mapa en cada modal al mostrarse
-        document.querySelectorAll('.portfolio-modal').forEach((modal,index) => {
-            const mapContainer = modal.querySelector('[id^="map2"]');
-            console.log(mapContainer);
-            const map = L.map(mapContainer);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        mapas.push(item.hasMap)
+      });
+      
+      document.querySelectorAll('.portfolio-modal').forEach((modal,index) => {
+        const mapContainer = modal.querySelector('[id^="map2"]');
+        console.log(mapContainer);
+        const map = L.map(mapContainer);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        modal.addEventListener('shown.bs.collapse', function () {
+            map.invalidateSize();
+            new L.GPX(mapas[index], {
+                async: true,
+                marker_options: {
+                    startIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-start.png",
+                    endIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-end.png",
+                    shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-shadow.png"
+                }
+            }).on('loaded', function(e) {
+                map.fitBounds(e.target.getBounds());
             }).addTo(map);
-
-            modal.addEventListener('shown.bs.collapse', function () {
-                map.invalidateSize();
-                new L.GPX(item.hasMap, {
-                    async: true,
-                    marker_options: {
-                        startIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-start.png",
-                        endIconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-icon-end.png",
-                        shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet-gpx/1.4.0/pin-shadow.png"
-                    }
-                }).on('loaded', function(e) {
-                    map.fitBounds(e.target.getBounds());
-                }).addTo(map);
-            });
         });
       });
-        
       // Llamamos a addSpeakButtons después de cargar todos los elementos
       addSpeakButtons();  
   

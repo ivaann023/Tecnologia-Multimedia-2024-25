@@ -49,8 +49,3 @@ function initMap() {
     var marker13 = L.marker([location2.lat, location2.lng]).addTo(map);
     
 }
-
-function printParams(a, b){
-    console.log(a);
-    console.log(b);
-}

@@ -78,7 +78,7 @@
           "geo": {
             "@type": "GeoCoordinates",
             "latitude": "39.8660",
-            "longitude": " 3.1735"
+            "longitude": "3.1735"
           }
         }
     }, 
