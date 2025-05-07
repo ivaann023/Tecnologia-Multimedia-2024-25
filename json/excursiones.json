@@ -179,7 +179,7 @@
           "@type": "VideoObject",
           "name": "Vídeo de la Excursión por el Puigpunyent",
           "description": "Un recorrido visual por la excursión del Puigpunyent a Puig de Na Bauçana.",
-          "embedUrl": "https://www.youtube.com/watch?v=UWPKogkaHrQ"
+          "embedUrl": "https://www.youtube.com/embed/UWPKogkaHrQ"
         }
       },
       "hasMap": "https://www.explorarmallorca.com/rutas/puigpunyent-paso-de-sa-ventalla-puig-de-na-baucana.gpx",
@@ -219,7 +219,7 @@
           "@type": "VideoObject",
           "name": "Vídeo de la Excursión por el Puig de Sant Salvador",
           "description": "Un recorrido visual por la excursión del Castell de Santueri a Puig de Sant Salvador.",
-          "embedUrl": "https://www.youtube.com/watch?v=TAF4A7I8Scw"
+          "embedUrl": "https://www.youtube.com/embed/TAF4A7I8Scw"
         }
       },
       "hasMap": "https://www.explorarmallorca.com/rutas/castell-de-santueri-a-sant-salvador.gpx",
@@ -246,7 +246,7 @@
       "@identifier": 7,
       "@type": "Place", 
       "name": "Puig Major",
-      "description": "TODO",
+      "description": "La ascensión al Puig Major desde el Coll dels Reis es una de las rutas más desafiantes y espectaculares de la Serra de Tramuntana. La ruta parte cerca del célebre Coll dels Reis, en la carretera de Sa Calobra, y transcurre por terreno abrupto, pedregoso y de alta montaña, atravesando paisajes kársticos, restos de actividad militar y vistas vertiginosas.  El recorrido permite alcanzar puntos cercanos de altísima cota, como el Morro d’en Pelut, desde donde se domina una vista impresionante de toda la sierra. Se trata de una ruta exigente, reservada a senderistas experimentados, una experiencia inolvidable para quienes buscan conquistar la cima más emblemática de Mallorca",
       "image": [
         "https://www.explorarmallorca.com/assets/excursion7/puigmayor1.jpg",
         "https://www.explorarmallorca.com/assets/excursion7/puigmayor2.jpg",
@@ -259,7 +259,7 @@
           "@type": "VideoObject",
           "name": "Vídeo de la Excursión por el Puig Major",
           "description": "Un recorrido visual por la excursión del Puig Major",
-          "embedUrl": "https://www.youtube.com/watch?v=rOe3eu6FKGo"
+          "embedUrl": "https://www.youtube.com/embed/rOe3eu6FKGo"
         }
       },
       "hasMap": "https://www.explorarmallorca.com/rutas/puig-mayor-desde-parking-coll-dels-reis-cima-mas-alta-de-mal.gpx",
