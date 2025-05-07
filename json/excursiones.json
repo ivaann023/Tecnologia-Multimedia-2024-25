@@ -281,6 +281,132 @@
           "longitude": "2.7933"
         }
       }
+    },
+    {
+      "@identifier": 8,
+      "@type": "Place",
+      "name": "Puig de Massanella",
+      "description": "El Puig de Massanella, con sus 1.364 metros de altitud, es la segunda cima más alta de Mallorca y ofrece panorámicas espectaculares de la isla. La ruta circular parte desde el Santuari de Lluc, atravesando bosques de pino y sendas de alta montaña.",
+      "image": [
+        "https://s0.wklcdn.com/image_3/91718/114841354/73754532.400x300.jpg",
+        "https://s2.wklcdn.com/image_3/91718/114841354/73754549.400x300.jpg",
+        "https://s2.wklcdn.com/image_3/91718/114841354/73754567.400x300.jpg"
+      ],
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "video": {
+          "@type": "VideoObject",
+          "name": "Vídeo de la Excursión al Puig de Massanella",
+          "description": "Recorrido visual por la excursión circular al Puig de Massanella.",
+          "embedUrl": "https://www.youtube.com/embed/2Yaz8kB-Fn0"
+        }
+      },
+      "hasMap": "https://www.wikiloc.com/hiking-trails/roundtrip-lluc-puig-de-massanella-18-km-114841354",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Dificultad",
+          "value": "Difícil"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "duration",
+          "value": "PT7H52M"
+        }
+      ],
+      "containedInPlace": {
+        "@type": "Place",
+        "name": "Puig de Massanella",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "39.800",
+          "longitude": "2.850"
+        }
+      }
+    },
+    {
+      "@identifier": 9,
+      "@type": "Place",
+      "name": "Castell d'Alaró",
+      "description": "La ruta al Castell d'Alaró es una de las excursiones más emblemáticas de la Serra de Tramuntana. Desde el pueblo de Alaró se asciende por un camino semi-circular hasta las ruinas del castillo, situadas a 822 metros de altitud, con vistas de 360° sobre la isla.",
+      "image": [
+        "https://s2.wklcdn.com/image_3/118958/1305146/424349.400x300.jpg",
+        "https://s0.wklcdn.com/image_3/118958/1305146/424356.400x300.jpg",
+        "https://s1.wklcdn.com/image_3/118958/1305146/424357.400x300.jpg"
+      ],
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "video": {
+          "@type": "VideoObject",
+          "name": "Vídeo de la Excursión al Castell d'Alaró",
+          "description": "Recorrido visual por la subida al Castell d'Alaró.",
+          "embedUrl": "https://www.youtube.com/embed/1hHsigjFf_k"
+        }
+      },
+      "hasMap": "https://www.wikiloc.com/hiking-trails/castell-dalaro-desde-alaro-1305146",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Dificultad",
+          "value": "Fácil"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "duration",
+          "value": "PT7H16M"
+        }
+      ],
+      "containedInPlace": {
+        "@type": "Place",
+        "name": "Castell d'Alaró",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "39.70667",
+          "longitude": "2.79083"
+        }
+      }
+    },
+    {
+      "@identifier": 10,
+      "@type": "Place",
+      "name": "Ruta Betlem, Ermita de Betlem, Puig de sa Creu, Talaia Freda",
+      "description": "Esta ruta circular en la zona de Betlem recorre la Ermita de Betlem, asciende al Puig de sa Creu y culmina en la Talaia Freda, ofreciendo vistas al mar y al interior de la isla a lo largo de sus 14 km.",
+      "image": [
+        "https://s1.wklcdn.com/image_203/6119967/92700557/60563314.400x300.jpg",
+        "https://s2.wklcdn.com/image_203/6119967/92700557/60563315.400x300.jpg",
+        "https://s0.wklcdn.com/image_203/6119967/92700557/60563316.400x300.jpg"
+      ],
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "video": {
+          "@type": "VideoObject",
+          "name": "Vídeo de la Ruta en Betlem",
+          "description": "Recorrido visual por la ruta Betlem – Ermita de Betlem – Puig de sa Creu – Talaia Freda.",
+          "embedUrl": "https://www.youtube.com/embed/kctU0fCDfQI"
+        }
+      },
+      "hasMap": "https://es.wikiloc.com/rutas-senderismo/mallorca-betlem-ermita-de-betlem-puig-sa-creu-sa-talaia-freda-pas-del-porc-92700557",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Dificultad",
+          "value": "Moderado"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "duration",
+          "value": "PT6H26M"
+        }
+      ],
+      "containedInPlace": {
+        "@type": "Place",
+        "name": "Betlem, Colònia de Sant Pere",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "39.7372361",
+          "longitude": "3.2781889"
+        }
+      }
     }
   ] 
 }
