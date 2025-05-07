@@ -312,7 +312,7 @@
         {
           "@type": "PropertyValue",
           "name": "duration",
-          "value": "PT7H52M"
+          "value": "PT8H"
         }
       ],
       "containedInPlace": {
@@ -355,7 +355,7 @@
         {
           "@type": "PropertyValue",
           "name": "duration",
-          "value": "PT7H16M"
+          "value": "PT7H"
         }
       ],
       "containedInPlace": {
@@ -399,7 +399,7 @@
         {
           "@type": "PropertyValue",
           "name": "duration",
-          "value": "PT6H26M"
+          "value": "PT6H"
         }
       ],
       "containedInPlace": {
