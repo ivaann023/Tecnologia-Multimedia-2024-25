@@ -7,6 +7,7 @@ function cargarDatos() {
   const urlJson = "https://www.explorarmallorca.com/json/excursiones.json";
   const reviewsJson="https://www.explorarmallorca.com/json/reviews.json";
   var mapas=[];
+  var coordenadas=[];
   Promise.all([fetch(urlJson).then(response=>response.json()), fetch(reviewsJson).then(response=>response.json())])
   .then(([data,reviewsData]) =>{
       console.log("He leído bien el JSON");
@@ -89,7 +90,7 @@ function cargarDatos() {
                               </div>
 
                               <div class="temperature" id="temperature">Cargando...</div>
-                              <div class="description" id="weather-description">Por favor espera...</div>
+                              <div class="weather-description" id="weather-description">Por favor espera...</div>
 
                               <div class="divider"></div>
 
@@ -261,7 +262,8 @@ function cargarDatos() {
             </div>
           </div>
         `;
-        getWeather(item.containedInPlace.geo.latitude,item.containedInPlace.geo.longitude)
+        coordenadas.push([item.containedInPlace.geo.latitude,item.containedInPlace.geo.longitude])
+        
         portfolioModals.innerHTML += modalHTML;
 
         // Inicialización del mapa en cada modal al mostrarse
@@ -270,7 +272,6 @@ function cargarDatos() {
       
       document.querySelectorAll('.portfolio-modal').forEach((modal,index) => {
         const mapContainer = modal.querySelector('[id^="map2"]');
-        console.log(mapContainer);
         const map = L.map(mapContainer);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -290,6 +291,7 @@ function cargarDatos() {
         });
       });
       // Llamamos a addSpeakButtons después de cargar todos los elementos
+      getWeather(coordenadas);
       addSpeakButtons();  
   
     })
