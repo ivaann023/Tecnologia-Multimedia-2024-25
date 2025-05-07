@@ -161,6 +161,126 @@
           "longitude": "2.7473"
         }
       }
+    },
+	{
+      "@identifier": 5,
+      "@type": "Place", 
+      "name": "Puigpunyent",
+      "description": "La ruta de Puigpunyent al Puig de na Bauçana es una joya poco conocida de la Serra de Tramuntana que combina historia, naturaleza y espectaculares vistas. El recorrido comienza en el pintoresco pueblo de Puigpunyent, y asciende por antiguos caminos de carboneros hasta el emblemático Pas de sa Ventalla, un paso natural entre rocas con vistas únicas del valle. La ruta culmina en el Puig de na Bauçana, desde donde se domina una panorámica impresionante que abarca desde la costa suroeste hasta los picos más altos de la sierra.",
+      "image": [
+        "https://www.explorarmallorca.com/assets/excursion5/puigpunyent1.jpg",
+        "https://www.explorarmallorca.com/assets/excursion5/puigpunyent2.jpg",
+        "https://www.explorarmallorca.com/assets/excursion5/puigpunyent3.jpg",
+        "https://www.explorarmallorca.com/assets/excursion5/puigpunyent4.jpg"
+      ],
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "video":{
+          "@type": "VideoObject",
+          "name": "Vídeo de la Excursión por el Puigpunyent",
+          "description": "Un recorrido visual por la excursión del Puigpunyent a Puig de Na Bauçana.",
+          "embedUrl": "https://www.youtube.com/watch?v=UWPKogkaHrQ"
+        }
+      },
+      "hasMap": "https://www.explorarmallorca.com/rutas/puigpunyent-paso-de-sa-ventalla-puig-de-na-baucana.gpx",
+      "additionalProperty": [{
+        "@type": "PropertyValue",
+        "name": "Dificultad",
+        "value": "Moderada"
+      },{
+        "@type": "PropertyValue",
+        "name": "duration",
+        "value": "PT5H"
+      }],
+      "containedInPlace": {
+        "@type": "Place",
+        "name": "Puigpunyent",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "39.624",
+          "longitude": "2.5276"
+        }
+      }
+    },
+    {
+      "@identifier": 6,
+      "@type": "Place", 
+      "name": "Puig de Sant Salvador",
+      "description": "La ruta del Castell de Santueri a Sant Salvador ofrece una de las caminatas más cautivadoras del sureste de Mallorca, combinando historia medieval, vistas espectaculares y naturaleza mediterránea. El recorrido comienza en las inmediaciones del Castell de Santueri, desde el castillo, el camino asciende por senderos rodeados de pinares, garrigas y formaciones rocosas hasta llegar al Santuario de Sant Salvador. Este antiguo monasterio, destaca por su monumental cristo, la cruz del Picot y su mirador, desde donde se contempla una de las mejores panorámicas de la isla.",
+      "image": [
+        "https://www.explorarmallorca.com/assets/excursion6/puigsalvador1.jpg",
+        "https://www.explorarmallorca.com/assets/excursion6/puigsalvador2.jpg",
+        "https://www.explorarmallorca.com/assets/excursion6/puigsalvador3.jpg",
+        "https://www.explorarmallorca.com/assets/excursion6/puigsalvador4.jpg"
+      ],
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "video":{
+          "@type": "VideoObject",
+          "name": "Vídeo de la Excursión por el Puig de Sant Salvador",
+          "description": "Un recorrido visual por la excursión del Castell de Santueri a Puig de Sant Salvador.",
+          "embedUrl": "https://www.youtube.com/watch?v=TAF4A7I8Scw"
+        }
+      },
+      "hasMap": "https://www.explorarmallorca.com/rutas/castell-de-santueri-a-sant-salvador.gpx",
+      "additionalProperty": [{
+        "@type": "PropertyValue",
+        "name": "Dificultad",
+        "value": "Moderada"
+      },{
+        "@type": "PropertyValue",
+        "name": "duration",
+        "value": "PT4H"
+      }],
+      "containedInPlace": {
+        "@type": "Place",
+        "name": "Puig de Sant Salvador",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "39.4547",
+          "longitude": "3.1883"
+        }
+      }
+    },
+    {
+      "@identifier": 7,
+      "@type": "Place", 
+      "name": "Puig Major",
+      "description": "TODO",
+      "image": [
+        "https://www.explorarmallorca.com/assets/excursion7/puigmayor1.jpg",
+        "https://www.explorarmallorca.com/assets/excursion7/puigmayor2.jpg",
+        "https://www.explorarmallorca.com/assets/excursion7/puigmayor3.jpg",
+        "https://www.explorarmallorca.com/assets/excursion7/puigmayor4.jpg"
+      ],
+      "subjectOf": {
+        "@type": "CreativeWork",
+        "video":{
+          "@type": "VideoObject",
+          "name": "Vídeo de la Excursión por el Puig Major",
+          "description": "Un recorrido visual por la excursión del Puig Major",
+          "embedUrl": "https://www.youtube.com/watch?v=rOe3eu6FKGo"
+        }
+      },
+      "hasMap": "https://www.explorarmallorca.com/rutas/puig-mayor-desde-parking-coll-dels-reis-cima-mas-alta-de-mal.gpx",
+      "additionalProperty": [{
+        "@type": "PropertyValue",
+        "name": "Dificultad",
+        "value": "Alta"
+      },{
+        "@type": "PropertyValue",
+        "name": "duration",
+        "value": "PT6H"
+      }],
+      "containedInPlace": {
+        "@type": "Place",
+        "name": "Puig Major",
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "39.8075",
+          "longitude": "2.7933"
+        }
+      }
     }
   ] 
 }

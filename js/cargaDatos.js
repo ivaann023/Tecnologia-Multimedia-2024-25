@@ -263,7 +263,6 @@ function cargarDatos() {
         `;
         getWeather(item.containedInPlace.geo.latitude,item.containedInPlace.geo.longitude)
         portfolioModals.innerHTML += modalHTML;
-        const accordions = document.querySelectorAll('.accordion-collapse');
 
         // Inicialización del mapa en cada modal al mostrarse
         mapas.push(item.hasMap)
