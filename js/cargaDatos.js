@@ -66,38 +66,37 @@ function cargarDatos() {
                         <div id="collapseDetails${index + 1}" class="accordion-collapse collapse show" aria-labelledby="headingDetails${index + 1}">
                           <div class="accordion-body">
                             <p class="lead speak-text">${item.description}</p>
-                            <div class="row justify-content-center mb-4">
-                              <div class="col-md-10">
-                                <img class="img-fluid rounded" src="${item.image[0]}" alt="Imagen principal de ${item.name}">
+                                <div class="excursion-image mb-4">
+                                  <img src="${item.image[0]}" alt="Imagen principal de ${item.name}">
+                                </div>
+                            <div class="detail-container mb-4">
+                              <div class="detail-card">
+                                <i class="fas fa-mountain"></i>
+                                <span>Dificultad: ${item.additionalProperty[0].value}</span>
+                              </div>
+                              <div class="detail-card">
+                                <i class="fas fa-clock"></i>
+                                <span>Duración: ${parseTime(item.additionalProperty[1].value)}</span>
                               </div>
                             </div>
-                            <div class="row text-center">
-                              <div class="col-md-6 mb-3">
-                                <h5><strong>Dificultad:</strong> ${item.additionalProperty[0].value}</h5>
-                              </div>
-                              <div class="col-md-6 mb-3">
-                                <h5><strong>Duración:</strong> ${parseTime(item.additionalProperty[1].value)}</h5>
-                              </div>
-                            </div>
-                          </div>
 
-                          <!-- Contenedor Weather Card -->
-                          <div class="d-flex justify-content-center align-items-center p-4">
-                            <div class="weather-card" id="weather">
-                              <div class="weather-header">
-                                <div class="location" id="location">${item.name}, España</div>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Media_Viewer_Icon_-_Location.svg" alt="Ubicación">
-                              </div>
+                            <!-- Contenedor Weather Card -->
+                            <div class="d-flex justify-content-center align-items-center mb-2">
+                              <div class="weather-card">
+                                <div class="weather-header">
+                                  <div class="location">${item.name}, Mallorca</div>
+                                </div>
 
-                              <div class="temperature" id="temperature">Cargando...</div>
-                              <div class="weather-description" id="weather-description">Por favor espera...</div>
+                                <div class="temperature">Cargando...</div>
+                                <div class="weather-description">Por favor espera...</div>
 
-                              <div class="divider"></div>
+                                <div class="divider"></div>
 
-                              <div class="wind-speed" id="windspeed">Velocidad del viento: </div>
+                                <div class="wind-speed">Velocidad del viento: </div>
 
-                              <div class="weather-icon" id="weather-icon">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Weather_Forecast-Sunny.svg" alt="Clima">
+                                <div class="weather-icon">
+                                  <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Weather_Forecast-Sunny.svg" alt="Clima">
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -291,9 +290,9 @@ function cargarDatos() {
         });
       });
       // Llamamos a addSpeakButtons después de cargar todos los elementos
-      getWeather(coordenadas);
       addSpeakButtons();  
-  
+
+      getWeather(coordenadas);
     })
     .catch(error => {
       console.error("Error al cargar el archivo JSON:", error);

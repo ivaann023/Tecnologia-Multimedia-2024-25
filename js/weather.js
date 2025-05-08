@@ -1,64 +1,80 @@
-/*
-        
-document.addEventListener('DOMContentLoaded', function() {
-    getWeather();
-});
-*/
+// weather.js
+
+/**
+ * getWeather
+ * ---------
+ * Recibe un array de coordenadas [[lat1, lon1], [lat2, lon2], …]
+ * y rellena cada .weather-card con la info meteorológica correspondiente.
+ */
 function getWeather(coordenadas) {
-    console.log(coordenadas);
-    document.querySelectorAll('.weather-card').forEach((modal,index)=>{
-        // Función para obtener y mostrar el clima
-        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${coordenadas[index][0]}&longitude=${coordenadas[index][1]}&current_weather=true&language=es&temperature_unit=celsius`)
+    // Recorre todas las tarjetas renderizadas
+    document.querySelectorAll('.weather-card').forEach((card, index) => {
+        const [lat, lon] = coordenadas[index];
+
+        fetch(
+        `https://api.open-meteo.com/v1/forecast?` +
+        `latitude=${lat}&longitude=${lon}` +
+        `&current_weather=true&language=es&temperature_unit=celsius`)
         .then(response => response.json())
         .then(data => {
-        // Accede a la información del clima
         const weather = data.current_weather;
 
-        // Muestra la temperatura
-        modal.querySelector('.temperature').textContent = `${weather.temperature} °C`;
+        // Valores por defecto:
+        let description = 'Despejado';
+        let iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/4/47/Weather_Forecast-Sunny.svg';
+        let category    = 'sunny';
 
-        // Muestra la descripción del clima (en base al código del clima)
-        let description = 'Despejado'; // Definir un mensaje predeterminado
-        let iconUrl = 'https://upload.wikimedia.org/wikipedia/commons/4/47/Weather_Forecast-Sunny.svg'; // Icono predeterminado
         switch (weather.weathercode) {
+
             case 0:
-                description = 'Despejado';
-                iconUrl = 'https://upload.wikimedia.org/wikipedia/commons/4/47/Weather_Forecast-Sunny.svg';
-                break;
+              description = 'Despejado';
+              iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/4/47/Weather_Forecast-Sunny.svg';
+              category    = 'sunny';
+              break;
+
             case 1:
-                description = 'Parcialmente nublado';
-                iconUrl = 'https://upload.wikimedia.org/wikipedia/commons/3/32/Weather_Forecast-PartlyCloudy.svg';
-                break;
+              description = 'Parcialmente nublado';
+              iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/3/32/Weather_Forecast-PartlyCloudy.svg';
+              category    = 'partly-cloudy';
+              break;
+
             case 2:
-                description = 'Nublado';
-                iconUrl = 'https://upload.wikimedia.org/wikipedia/commons/7/77/Weather_Forecast-Overcast.svg';
-                break;
+              description = 'Nublado';
+              iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/7/77/Weather_Forecast-Overcast.svg';
+              category    = 'overcast';
+              break;
+
             case 3:
-                description = 'Lluvia ligera';
-                iconUrl = 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Weather_Forecast-Overcast%2Bshowers.svg';
-                break;
+              description = 'Lluvia ligera';
+              iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Weather_Forecast-Overcast%2Bshowers.svg';
+              category    = 'light-rain';
+              break;
+
             case 4:
-                description = 'Lluvia';
-                iconUrl = 'https://upload.wikimedia.org/wikipedia/commons/d/db/Weather_Forecast-Overcast%2Brain.svg';
-                break;
+              description = 'Lluvia';
+              iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/d/db/Weather_Forecast-Overcast%2Brain.svg';
+              category    = 'rain';
+              break;
+
             default:
-                description = 'Desconocido';
-                iconUrl = 'https://upload.wikimedia.org/wikipedia/commons/d/db/Weather_Forecast-Overcast%2Brain.svg';
-                break;
-            // Agrega más casos según necesites
+              description = 'Desconocido';
+              iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/d/db/Weather_Forecast-Overcast%2Brain.svg';
+              category    = 'sunny'; 
         }
 
-        modal.querySelector('.weather-description').textContent = description;
-        modal.querySelector('.wind-speed').textContent = `Velocidad del viento: ${weather.windspeed} m/s`;
-        modal.querySelector('.weather-icon').innerHTML = `<img src="${iconUrl}" alt="Clima">`;
+        // Se ponen los datos en la tarjeta
+        card.querySelector('.temperature').textContent         = `${weather.temperature} °C`;
+        card.querySelector('.weather-description').textContent = description;
+        card.querySelector('.wind-speed').textContent          = `Velocidad del viento: ${weather.windspeed} m/s`;
+        card.querySelector('.weather-icon').innerHTML          = `<img src="${iconUrl}" alt="${description}">`;
+
+        card.classList.add(`weather-${category}`);
         })
+
         .catch(error => {
-        console.error('Error:', error);
-        modal.querySelector('.temperature').textContent = 'Error al obtener el clima';
-        modal.querySelector('.weather-description').textContent = 'No se pudo cargar la información.';
+            console.error('Error al obtener clima:', error);
+            card.querySelector('.temperature').textContent         = 'Error';
+            card.querySelector('.weather-description').textContent = 'Sin datos';
         });
     });
-    
 }
-
-

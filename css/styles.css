@@ -10831,8 +10831,9 @@ html {
 }
 
 .page-section {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
+
 
 .page-section .page-section-heading {
   font-size: 2.5rem;
@@ -11590,50 +11591,234 @@ body:has(#login-box[style*="display: block"])::before {
   color: #0056b3; /* Cambia el color del emote al pasar el ratón si lo deseas */
 }
 
-.weather-card {
-  background-color: white;
-  border-radius: 15px;
-  width: 320px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+/* Para modificar la imagen principal de las excursiones 
+   dentro de los detalles generales de cada ruta */
+
+   .excursion-image {
+    /* Que el contenedor ocupe el 80% del ancho de su padre */
+    width: 60%;
+    height: 60%;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .excursion-image img {
+    /* Que la imagen llene todo el ancho del contenedor */
+    width: 100%;
+    /* Mantener proporción */
+    height: auto;
+    object-fit: cover;
+  }
+
+/* Para modificar el diseño de la duración y dificultad 
+   dentro de los detalles generales de cada ruta */
+
+/* ──────────────────────────────────────────────────────────────────────────
+   Contenedor centrado y con espacio
+   ────────────────────────────────────────────────────────────────────────── */
+   .detail-container {
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap;
+    gap: 1rem;               
+  }
+  
+  /* ──────────────────────────────────────────────────────────────────────────
+     Tarjeta mínima, con borde ligero y sombra suave
+     ────────────────────────────────────────────────────────────────────────── */
+  .detail-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: #ffffff;
+    border: 1px solid #dee2e6;       
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;            
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  /* Efecto hover */
+  .detail-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.10);
+  }
+  
+  /* Icono y texto */
+  .detail-card i {
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    color: var(--bs-primary);
+  }
+  .detail-card span {
+    font-size: 20px;
+    font-weight: 500;
+    color: #343a40;
+  }
+  
+  /* ──────────────────────────────────────────────────────────────────────────
+     Responsive: en móviles ocupan toda la fila y se centran
+     ────────────────────────────────────────────────────────────────────────── */
+
+  @media (max-width: 1000px) {
+    .detail-card {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+/* Para modificar el diseño de la card del tiempo 
+   dentro de los detalles generales de cada ruta */
+
+/* ──────────────────────────────────────────────────────────────────────────
+   BASE WEATHER CARD
+   ────────────────────────────────────────────────────────────────────────── */
+   .weather-card {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: background 0.5s ease, border-color 0.5s ease;
+    color: #fff;            
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* ──────────────────────────────────────────────────────────────────────────
+     CABECERA
+     ────────────────────────────────────────────────────────────────────────── */
+  .weather-header {
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .location {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  
+  /* ──────────────────────────────────────────────────────────────────────────
+     TEMPERATURA, DESCRIPCIÓN, DIVIDER Y VIENTO
+     ────────────────────────────────────────────────────────────────────────── */
+  .temperature {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0.25rem 0;
+    line-height: 1;
+  }
+  .weather-description {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    text-transform: capitalize;
+  }
+  .divider {
+    width: 60%;
+    margin: 0.75rem auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+  }
+  .wind-speed {
+    font-size: 0.875rem;
+    opacity: 0.85;
+    margin-bottom: 1rem;
+  }
+  
+  /* ──────────────────────────────────────────────────────────────────────────
+     ÍCONO DEL CLIMA
+     ────────────────────────────────────────────────────────────────────────── */
+  .weather-icon img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  /* ──────────────────────────────────────────────────────────────────────────
+     VARIANTES DE CLIMA 
+     ────────────────────────────────────────────────────────────────────────── */
+  
+  /* SUNNY */
+  .weather-sunny {
+    background: linear-gradient(145deg, #FFECB3 0%, #FFD54F 50%, #FFC107 100%);
+    border: 2px solid #FFB300;
+  }
+  .weather-sunny .divider {
+    border-color: rgba(255, 179, 0, 0.6);
+  }
+  
+  /* PARTLY CLOUDY */
+  .weather-partly-cloudy {
+    background: linear-gradient(145deg, #E3F2FD 0%, #90CAF9 50%, #42A5F5 100%);
+    border: 2px solid #1E88E5;
+  }
+  .weather-partly-cloudy .divider {
+    border-color: rgba(30, 136, 229, 0.6);
+  }
+  
+  /* OVERCAST */
+  .weather-overcast {
+    background: linear-gradient(145deg, #CFD8DC 0%, #78909C 50%, #455A64 100%);
+    border: 2px solid #37474F;
+  }
+  .weather-overcast .divider {
+    border-color: rgba(55, 71, 79, 0.6);
+  }
+  
+  /* LIGHT RAIN */
+  .weather-light-rain {
+    background: linear-gradient(145deg, #B3E5FC 0%, #4FC3F7 50%, #0288D1 100%);
+    border: 2px solid #0277BD;
+  }
+  .weather-light-rain .divider {
+    border-color: rgba(2, 119, 189, 0.6);
+  }
+  
+  /* RAIN */
+  .weather-rain {
+    background: linear-gradient(145deg, #81D4FA 0%, #29B6F6 50%, #0288D1 100%);
+    border: 2px solid #01579B;
+  }
+  .weather-rain .divider {
+    border-color: rgba(1, 87, 155, 0.6);
+  }
+  
+  @media (max-width: 576px) {
+    .weather-card {
+      padding: 1rem;
+    }
+    .temperature {
+      font-size: 2.5rem;
+    }
+    .weather-icon img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  /* ──────────────────────────────────────────────────────────────────────────
+    PORTFOLIO DE IMÁGENES DE RUTAS
+     ────────────────────────────────────────────────────────────────────────── */
+
+  /* ---------- IMÁGENES UNIFORMES ---------- */
+.portfolio-item {
+  overflow: hidden;
+  border-radius: .5rem;
 }
-.weather-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.weather-header img {
-  width: 30px;
-  height: 30px;
-}
-.location {
-  font-size: 16px;
-  color: #555;
-}
-.temperature {
-  font-size: 64px;
-  font-weight: bold;
-  color: #333;
-}
-.description {
-  font-size: 18px;
-  color: #888;
-}
-.wind-speed {
-  font-size: 14px;
-  color: #777;
-}
-.weather-icon {
-  margin-top: 20px;
-}
-.weather-icon img {
-  width: 50px;
-  height: 50px;
-}
-.divider {
-  margin: 20px 0;
-  border: 1px solid #e0e0e0;
+.portfolio-item img {
+  width: 100%;
+  height: 200px;           
+  object-fit: cover;      
+  display: block;
 }
 
 /* ==============================
