@@ -46,6 +46,115 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  function initializeCommentForms() {
+    const user = sessionStorage.getItem('user');
+    document
+      .querySelectorAll('[id^="commentElement"]')
+      .forEach(section => {
+        const form      = section.querySelector('.comment-form');
+        const textInput = form.querySelector('.comment-text');
+        const stars     = Array.from(form.querySelectorAll('input[type=radio]'));
+        const submitBtn = form.querySelector('.btn-comment-submit');
+  
+        // Mostrar/ocultar
+        section.style.display = user ? 'block' : 'none';
+
+        // Reset
+        textInput.value = '';
+        const starLabels = Array.from(section.querySelectorAll('.star-label'));
+        stars.forEach(r => r.checked = false);
+        submitBtn.disabled = true;
+        starLabels.forEach(label => label.classList.remove('selected'));
+
+        if (user) {
+          // Cada vez que cambie texto o rating, activo botón
+          form.addEventListener('input', () => {
+            const hasText   = textInput.value.trim().length > 0;
+            const hasStars  = stars.some(r => r.checked);
+            submitBtn.disabled = !(hasText && hasStars);
+          });
+
+          const starLabels = Array.from(section.querySelectorAll('.star-label'));
+          starLabels.forEach(label => {
+            label.addEventListener('click', () => {
+              const selectedValue = parseInt(label.dataset.value);
+              starLabels.forEach(l => {
+                const current = parseInt(l.dataset.value);
+                if (current <= selectedValue) {
+                  l.classList.add('selected');
+                } else {
+                  l.classList.remove('selected');
+                }
+              });
+            });
+          });
+  
+          // Capturo el envío
+          form.addEventListener('submit', async e => {
+            e.preventDefault();
+            const comment = textInput.value.trim();
+            const rating  = stars.find(r => r.checked).value;
+            const excursionId = section.dataset.excursionId;
+            const author  = sessionStorage.getItem('user');
+  
+            // 1) Insertar en el DOM
+            const container = section.closest('.accordion-body').querySelector('.comment-list');
+            const now = new Date().toLocaleDateString();
+            const newHtml = `
+              <div class="comment fade-in mb-3 p-3 border rounded bg-light-subtle">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <strong class="text-primary">${author}</strong>
+                  <small class="text-muted">${now}</small>
+                </div>
+                <div class="mb-1">
+                  ${generateStars(rating)}
+                </div>
+                <p class="mb-0">${comment}</p>
+              </div>`;
+            container.insertAdjacentHTML('beforeend', newHtml);
+  
+            // 2) Reset form
+            textInput.value = '';
+            stars.forEach(r => r.checked = false);
+            submitBtn.disabled = true;
+  
+            // 3) Opcional: enviar al PHP
+            try {
+              const response = await fetch('php/save_comment.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ excursionId, author, comment, rating })
+              });
+            
+              const result = await response.json();
+              if (result.success) {
+                console.log('Comentario guardado con éxito.');
+            
+                // Actualizar las estrellas de valoración media
+                const starsContainer = section.closest('.accordion-body').querySelector('.stars');
+                const ratingText = starsContainer?.nextElementSibling;
+            
+                if (starsContainer && result.aggregateRating) {
+                  starsContainer.innerHTML = generateStars(result.aggregateRating.ratingValue);
+                  if (ratingText) {
+                    ratingText.textContent = `${parseFloat(result.aggregateRating.ratingValue).toFixed(1)} / 5 (${result.aggregateRating.reviewCount} opiniones)`;
+                  }
+                }
+              } else {
+                throw new Error(result.message || 'Error al guardar comentario');
+              }
+            
+            } catch (err) {
+              console.error('Error guardando comentario', err);
+            }
+          });
+        }
+      });
+  }
+
+  // Exponemos la función al ámbito global:
+  window.initializeCommentForms = initializeCommentForms;
+
   // 3) Envío del formulario (Login o Registro)
   form.addEventListener('submit', async e => {
     e.preventDefault();
@@ -78,6 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
         userNameNav.textContent = json.name;
         // Guardamos
         sessionStorage.setItem('user', json.name);
+        initializeCommentForms();
+
       }, 600);
 
     } catch (err) {
@@ -108,8 +219,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // navbar
     userItem.classList.add('d-none');
     loginItem.classList.remove('d-none');
-    // limpiar sesión
+    
+    // 1) Se limpia la sesión:
     sessionStorage.clear();
+
+    // 2) Se ocultan los formularios de comentario:
+    initializeCommentForms();
   });
 
   // 5) Restaurar sesión al recargar
@@ -118,5 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
     userNameNav.textContent = saved;
     loginItem.classList.add('d-none');
     userItem.classList.remove('d-none');
+    initializeCommentForms();
   }
 });

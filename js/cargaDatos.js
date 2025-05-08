@@ -219,15 +219,21 @@ function cargarDatos() {
                 const review = reviewsData.itemListElement.find(r => r['@identifier'] === item['@identifier']);
                 if (review) {
                   modalHTML += `
-                    <h4 class="text-secondary">Valoración:</h4>
-                    <div class="stars">
-                      ${generateStars(review.aggregateRating.ratingValue)}
+                    <h4 class="text-secondary mb-1">Valoración:</h4>
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                      <div class="stars">
+                        ${generateStars(review.aggregateRating.ratingValue)}
+                      </div>
+                      <div class="small text-muted">
+                        ${parseFloat(review.aggregateRating.ratingValue).toFixed(1)} / 5 
+                        (${review.aggregateRating.reviewCount} opiniones)
+                      </div>
                     </div>
                   `;
                 }     
 
                 modalHTML+=`</div>
-                            <div class="mb-3">
+                            <div class="mb-3 comment-list">
                             <h4 class="text-secondary">Comentarios:</h4>`
                 
                 if (review) {
@@ -236,18 +242,24 @@ function cargarDatos() {
 
                 modalHTML+=`</div>
                             <!-- Formulario para añadir comentarios -->
-                            <div class="mt-4" id="commentElement${index + 1}" style="display: none;">
+                            <div class="mt-4" id="commentElement${index + 1}" data-excursion-id="${item['@identifier']}" style="display: none;">
                               <h4 class="text-secondary">Añadir Comentario:</h4>
-                              <form>
+                              <form class="comment-form">
+                                <!-- Campo de comentario -->
                                 <div class="mb-3 form-floating">
-                                  <input class="form-control" id="commentName" type="text" placeholder="Tu nombre" required>
-                                  <label for="commentName">Nombre</label>
+                                  <textarea class="form-control comment-text" placeholder="Tu comentario" style="height: 100px" required></textarea>
+                                  <label>Comentario</label>
                                 </div>
-                                <div class="mb-3 form-floating">
-                                  <textarea class="form-control" id="commentText" placeholder="Tu comentario" style="height: 100px" required></textarea>
-                                  <label for="commentText">Comentario</label>
+                                <!-- Selector de valoración 1–5 -->
+                                <div class="mb-3 rating d-flex gap-1">
+                                  ${[1, 2, 3, 4, 5].map(n => `
+                                    <input type="radio" name="rating${index+1}" id="star${n}-${index+1}" value="${n}" class="d-none">
+                                    <label for="star${n}-${index+1}" class="star-label" data-value="${n}">
+                                      ★
+                                    </label>
+                                  `).join('')}
                                 </div>
-                                <button class="btn btn-primary" type="submit">Enviar</button>
+                                <button class="btn btn-primary btn-comment-submit" type="submit" disabled>Enviar</button>
                               </form>
                             </div>
                           </div>
@@ -293,6 +305,8 @@ function cargarDatos() {
       addSpeakButtons();  
 
       getWeather(coordenadas);
+
+      initializeCommentForms();
     })
     .catch(error => {
       console.error("Error al cargar el archivo JSON:", error);
@@ -302,22 +316,26 @@ function cargarDatos() {
   
 // Función para generar las estrellas de la valoración
 function generateStars(ratingValue) {
-  const fullStars = Math.floor(ratingValue);
-  const halfStar = ratingValue % 1 !== 0;
+
+  const rating = parseFloat(ratingValue);
+  if (isNaN(rating)) return ''; 
+
+  const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 >= 0.5;
   let starsHTML = '';
-  
+
   for (let i = 0; i < fullStars; i++) {
     starsHTML += '<i class="fas fa-star text-warning"></i>';
   }
-  
+
   if (halfStar) {
     starsHTML += '<i class="fas fa-star-half-alt text-warning"></i>';
   }
-  
+
   for (let i = fullStars + (halfStar ? 1 : 0); i < 5; i++) {
-    starsHTML += '<i class="fas fa-star text-muted"></i>';
+    starsHTML += '<i class="far fa-star text-muted"></i>';
   }
-  
+
   return starsHTML;
 }
   
