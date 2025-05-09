@@ -6,7 +6,6 @@ function initMap() {
     // 1) Inicializa el mapa centrado en Mallorca
     var map = L.map('map').setView([39.63, 3.02], 9);
 
-
     // 2) Capa de OpenStreetMap
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -23,6 +22,16 @@ function initMap() {
         shadowSize:   [41, 41]
     });
 
+    // Icono personalizado para las aves
+    var birdIcon = new L.Icon({
+        iconUrl: 'assets/img/bird-pin.png', // ruta a tu icono de pájaro
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize:     [30, 30],
+        iconAnchor:   [15, 30],
+        popupAnchor:  [0, -30],
+        shadowSize:   [41, 41]
+    });
+
     // Haversine para distancia en km
     function toRad(deg) { return deg * Math.PI / 180; }
     function getDistanceKm(lat1, lon1, lat2, lon2) {
@@ -35,7 +44,7 @@ function initMap() {
         return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     }
 
-    // Carga y pinta marcadores según proximidad
+    // Carga y pinta marcadores de excursiones según proximidad
     function loadExcursiones(userLat, userLng) {
         var PROXIMITY_KM = 20; // ajusta el radio a tu gusto
         fetch('json/excursiones.json')
@@ -52,14 +61,10 @@ function initMap() {
                     var opts = {};
                     if (userLat != null && userLng != null) {
                         var dist = getDistanceKm(userLat, userLng, lat, lng);
-                        if (dist > PROXIMITY_KM) {
-                            opts.opacity = 0.4;
-                        } else {
-                            opts.opacity = 1.0;
-                        }
+                        opts.opacity = dist > PROXIMITY_KM ? 0.4 : 1.0;
                     }
 
-                    // Crea marcador con estilo según cercanía
+                    // Crea marcador de excursión
                     var marker = L.marker([lat, lng], opts).addTo(map);
 
                     // Popup con nombre y foto
@@ -77,7 +82,53 @@ function initMap() {
             });
     }
 
-    // 4) Geolocalización del usuario y carga de excursiones
+    // Carga y pinta marcadores de aves
+    function loadBirds(userLat, userLng) {
+        fetch('json/Ave.json')
+            .then(function(res) {
+                if (!res.ok) throw new Error('Error cargando Ave.json');
+                return res.json();
+            })
+            .then(function(avesData) {
+                return fetch('json/Zona.json')
+                    .then(function(res) {
+                        if (!res.ok) throw new Error('Error cargando Zona.json');
+                        return res.json();
+                    })
+                    .then(function(zonasData) {
+                        avesData.species.forEach(function(bird) {
+                            // Busca zonas de distribución
+                            var zonasDist = bird.additionalProperty.find(function(p) {
+                                return p.name === 'Zona de distribución';
+                            });
+                            if (!zonasDist) return;
+                            zonasDist.value.forEach(function(idZona) {
+                                var zone = zonasData.landforms.find(function(z) {
+                                    return z.identifier === idZona;
+                                });
+                                if (zone && zone.geo) {
+                                    var latB = zone.geo.latitude;
+                                    var lngB = zone.geo.longitude;
+                                    // Opcional: filtrar por proximidad al usuario
+                                    var opts = {icon: birdIcon};
+                                    if (userLat != null && userLng != null) {
+                                        var distB = getDistanceKm(userLat, userLng, latB, lngB);
+                                        // por ejemplo, sólo muestra aves a menos de 50 km
+                                        if (distB > 50) return;
+                                    }
+                                    var markerB = L.marker([latB, lngB], opts).addTo(map);
+                                    markerB.bindPopup('<strong>' + bird.name + '</strong>');
+                                }
+                            });
+                        });
+                    });
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+    }
+
+    // 4) Geolocalización del usuario y carga de marcadores
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
             var ulat = position.coords.latitude;
@@ -88,10 +139,11 @@ function initMap() {
              .bindPopup('Tu ubicación').openPopup();
 
             loadExcursiones(ulat, ulng);
+            loadBirds(ulat, ulng);
         }, function(err) {
             console.warn('Error en geolocalización:', err.message);
-            // Si falla, pinta todas con opacidad por defecto
             loadExcursiones(null, null);
+            loadBirds(null, null);
         }, {
             enableHighAccuracy: false,
             maximumAge: Infinity
@@ -99,5 +151,6 @@ function initMap() {
     } else {
         alert("Tu navegador no soporta Geolocalización.");
         loadExcursiones(null, null);
+        loadBirds(null, null);
     }
 }
