@@ -1,0 +1,188 @@
+{  
+    "@context": "https://schema.org/",
+    "landforms": [
+        {
+            "@type": "Landform",
+            "name": "La Gola",
+            "alternateName": "Parc de la Gola",
+            "description": "La Gola de Mallorca es una pequeña pero valiosa reserva natural situada en el Port de Pollença, en la costa norte de la isla. Se trata de una zona húmeda formada por una laguna de agua dulce que se encuentra conectada con el mar a través de un canal, lo que da lugar a un ecosistema mixto donde conviven especies tanto de agua dulce como salada. Este enclave natural se ha convertido en un refugio para una gran diversidad de aves acuáticas y migratorias, convirtiéndose en un lugar privilegiado para la observación de fauna.",
+            "disambiguatingDescription": "Humedal costero en Mallorca, ideal para la observación de aves y la conservación de ecosistemas naturales.",
+            "identifier": "Z0",
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 39.8968,
+                "longitude": 3.0862
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Pollença",
+                "addressRegion": "Mallorca",
+                "addressCountry": "España"
+            },
+            "image": [
+                "assets/img/Zonas/Gola/gola1.jpg",
+                "assets/img/Zonas/Gola/gola2.jpg",
+                "assets/img/Zonas/Gola/gola3.webp",
+                "assets/img/Zonas/Gola/gola4.jpeg",
+                "assets/img/Zonas/Gola/gola5.jpg"
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Humedal"]
+                }
+            ],
+            "video": "https://youtu.be/CqYcVCoGaOM?si=wBU5FVVS64_Cew-j"
+        },
+
+        {
+            "@type": "Landform",
+            "name": "S'Albufera de Mallorca",
+            "alternateName": "Parque Natural de la Albufera de Mallorca",
+            "description": "El maravilloso Parque Natural de S´Albufera de Mallorca, ubicado entre los municipios de Muro y Sa Pobla en el norte de la isla, es la zona húmeda más extensa de Mallorca. Con más de 1700 hectáreas, está separada del mar por un cordón de dunas. La situación de inundación casi constante de la mayor parte del Parque Natural condiciona y favorece el crecimiento de la vegetación. Las diversas especies de plantas dan cobijo y alimento a multitud de animales. Se han avistado más de 250 especies de pájaros, 26 especies de peces y pueden verse ranas, serpientes y tortugas en las aguas de la Albufera. Es un lugar perfecto para la observación de aves, como la garza real, águila pescadora, flamenco y martinete, y el avistamiento de especies como el carricerín real.",
+            "disambiguatingDescription": "El Parque Natural de la Albufera de Mallorca (en mallorquín Parc Natural de S'Albufera de Mallorca) es un espacio natural protegido español situado en la isla de Mallorca, comunidad autónoma de las Islas Baleares. Es la zona húmeda más extensa y de mayor importancia de las Islas Baleares, una antigua laguna separada del mar por un cordón de dunas. El parque natural de la Albufera de Mallorca da protección a 1687 especies y 65 hectáreas de marismas y dunas.",
+            "identifier": "Z1",
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 39.8003,
+                "longitude": 3.1189
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Muro - Sa Pobla",
+                "addressRegion": "Mallorca",
+                "addressCountry": "España"
+            },
+            "image": [
+                "assets/img/Zonas/Albufera/albufera1.jpg",
+                "assets/img/Zonas/Albufera/albufera2.jpg",
+                "assets/img/Zonas/Albufera/albufera3.jpg",
+                "assets/img/Zonas/Albufera/albufera4.jpg",
+                "assets/img/Zonas/Albufera/albufera5.jpg",
+                "assets/img/Zonas/Albufera/albufera6.jpg",
+                "assets/img/Zonas/Albufera/albufera7.jpg",
+                "assets/img/Zonas/Albufera/albufera8.jpg"    
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Humedal"]
+                }
+            ],
+            "video": "https://youtu.be/YUo-GGXZbmU?si=7Ohnxg1HB6ruTS4M"
+        },
+
+        {
+            "@type": "Landform",
+            "name": "Parque Natural de Mondragó",
+            "alternateName": "Parc Natural de Mondragó",
+            "description": "Se encuentra situado al este de la isla de Mallorca, en el término municipal de Santanyí, y ocupa una área aproximada de 766 hectáreas, 95 de las cuales son de propiedad pública, mientras que el resto de terreno corresponde a fincas de propiedad privada, muy parceladas, que se destinan preferentemente al cultivo extensivo de secano. Mondragó fue declarado Parque Natural en 1992 y es también un Área Natural de Especial Interés (ANEI), además de formar parte de la Red Natura 2000 como Zona de Especial Protección para las Aves (ZEPA) y Zona de Especial Conservación (ZEC). Destaca por su gran diversidad de paisajes, incluyendo calas de aguas cristalinas, acantilados, bosques mediterráneos y humedales, además de una rica fauna y flora.",
+            "disambiguatingDescription": "El Parque Natural de Mondragó es un espacio protegido ubicado en la costa sureste de Mallorca, en el municipio de Santanyí. Se caracteriza por su gran diversidad de paisajes, incluyendo calas de aguas cristalinas, acantilados, bosques mediterráneos y humedales. Es un refugio para numerosas especies de aves, reptiles y mamíferos, y un destino popular para senderistas y amantes de la naturaleza.",
+            "identifier": "Z2",
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 39.355803,
+                "longitude": 3.177794
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Santanyí",
+                "addressRegion": "Mallorca",
+                "addressCountry": "España"
+            },
+            "image": [
+                "assets/img/Zonas/Mondrago/mondrago2.webp",
+                "assets/img/Zonas/Mondrago/mondrago1.jpg",
+                "assets/img/Zonas/Mondrago/mondrago3.webp",
+                "assets/img/Zonas/Mondrago/mondrago4.webp",
+                "assets/img/Zonas/Mondrago/mondrago5.jpg",
+                "assets/img/Zonas/Mondrago/mondrago6.jpg",
+                "assets/img/Zonas/Mondrago/mondrago7.jpg" 
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Bosque"]
+                }
+            ],
+            "video": "https://youtu.be/eZRrLANLp9I?si=pygX8-gZBT16p515"
+        },
+
+        {
+            "@type": "Landform",
+            "name": "Serra de Tramuntana",
+            "alternateName": "Sierra de Tramuntana",
+            "description": "La Serra de Tramuntana es la principal cordillera montañosa de Mallorca y una de las áreas naturales más impresionantes del Mediterráneo. Con una extensión de más de 90 kilómetros a lo largo de la costa noroeste de la isla, esta sierra combina altas montañas, acantilados escarpados, valles fértiles y densos bosques mediterráneos. Su punto más alto es el Puig Major, con 1.436 metros, siendo la cumbre más elevada de Baleares. Declarada Patrimonio Mundial por la UNESCO en la categoría de Paisaje Cultural, la Serra de Tramuntana no solo destaca por su riqueza natural, sino también por su importante legado histórico y cultural, con pueblos de piedra, bancales de cultivo en terrazas, fuentes y caminos empedrados que han sido modelados por la actividad humana durante siglos. Además de su valor paisajístico, la Serra de Tramuntana alberga una gran biodiversidad, con una variada fauna y flora adaptada a sus condiciones montañosas. Es hogar de especies emblemáticas como el buitre negro, el halcón de Eleonora y la curruca balear, además de una gran cantidad de endemismos vegetales. Sus ecosistemas incluyen bosques de encinas y pinos, así como zonas de matorral y humedales en las áreas más bajas. La sierra también es un destino ideal para el senderismo y el ecoturismo, con rutas emblemáticas como el Camí de l’Arxiduc en Valldemossa o la Ruta de Pedra en Sec, que recorre toda la cordillera a través de antiguos caminos de piedra seca.",
+            "disambiguatingDescription": "La Serra de Tramuntana es la principal cordillera montañosa de Mallorca y una de las joyas naturales del Mediterráneo. Declarada Patrimonio Mundial por la UNESCO en la categoría de Paisaje Cultural, se extiende a lo largo de más de 90 kilómetros en la costa noroeste de la isla, desde Andratx hasta Pollença. Su paisaje se caracteriza por imponentes acantilados, valles fértiles, bosques mediterráneos y formaciones kársticas que albergan una gran biodiversidad. Además de su riqueza natural, la Serra de Tramuntana cuenta con un gran valor histórico y cultural, con pueblos pintorescos, antiguos sistemas de bancales y construcciones tradicionales que reflejan la adaptación del ser humano a un entorno montañoso.",
+            "identifier": "Z3",
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 39.807777777778,
+                "longitude": 2.7936111111111
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Varios municipios (Andratx, Sóller, Pollença, Escorca, Deià, Valldemossa, etc.)",
+                "addressRegion": "Mallorca",
+                "addressCountry": "España"
+            },
+            "image": [
+                "assets/img/Zonas/Tramuntana/tramuntana1.webp",
+                "assets/img/Zonas/Tramuntana/tramuntana2.webp",
+                "assets/img/Zonas/Tramuntana/tramuntana3.webp",
+                "assets/img/Zonas/Tramuntana/tramuntana4.webp",
+                "assets/img/Zonas/Tramuntana/tramuntana5.webp",
+                "assets/img/Zonas/Tramuntana/tramuntana6.webp",
+                "assets/img/Zonas/Tramuntana/tramuntana7.webp"    
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Montaña", "Bosque"]
+                }
+            ],
+            "video": "https://youtu.be/q-G0181G9v8?si=s6rYF-w8eXbu27eW"
+        },
+
+        {
+            "@type": "Landform",
+            "name": "Reserva Natural de s'Albufereta",
+            "alternateName": "Reserva Natural de s'Albufereta",
+            "description": "La zona húmeda litoral de s'Albufereta constituye una de las joyas de la bahía de Pollença tanto por su paisaje especial como por los valores ornitológicos y botánicos que contiene. La Reserva natural protege una superficie de 211 hectáreas y al suyo cercando las 290 hectáreas de su periferia de protección tienen reguladas algunas actividades y usos para evitar impactos indeseados. S'Albufereta fue declarada Reserva natural mediante el Decreto 121/2001 y cuatro años después fue recalificada como Reserva natural especial mediante la Ley 5/2005. Además, s'Albufereta forma parte de la Red Natura 2000, un conjunto de espacios naturales europeos destinados a la conservación de especies y hábitats naturales.",
+            "disambiguatingDescription": "La zona húmeda litoral de s'Albufereta constituye una de las joyas de la bahía de Pollença tanto por su paisaje especial como por los valores ornitológicos y botánicos que contiene. La Reserva natural protege una superficie de 211 hectáreas y su periferia de 290 hectáreas tiene reguladas algunas actividades y usos para evitar impactos indeseados.",
+            "identifier": "Z5",
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 39.85875580049613,
+                "longitude": 3.098215981058293
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Sector sur-occidental de la bahía de Pollença",
+                "addressRegion": "Mallorca",
+                "addressCountry": "España"
+            },
+            "image": [
+                "assets/img/Zonas/Albufereta/albufereta1.webp",
+                "assets/img/Zonas/Albufereta/albufereta2.webp",
+                "assets/img/Zonas/Albufereta/albufereta3.webp",
+                "assets/img/Zonas/Albufereta/albufereta4.webp",
+                "assets/img/Zonas/Albufereta/albufereta5.webp",
+                "assets/img/Zonas/Albufereta/albufereta6.webp"
+
+            ], 
+            "additionalProperty": [
+                {
+                "@type": "PropertyValue",
+                "name": "Tipo de zona",
+                "value": ["Humedal"]
+                }
+            ],
+            "video": "https://www.youtube.com/watch?v=8QP1GpoN-DU&ab_channel=IB3Not%C3%ADcies"
+        }
+    ]
+}
