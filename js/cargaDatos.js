@@ -10,6 +10,7 @@ function cargarDatos() {
   const zonasJson = "https://www.explorarmallorca.com/json/Zona.json";
   var mapas = [];
   var coordenadas = [];
+  var infAves=[];
 
   // Carga simultánea de rutas, valoraciones, aves y zonas
   Promise.all([
@@ -25,11 +26,6 @@ function cargarDatos() {
       const portfolioModals = document.getElementById("portfolioModals");
 
       data.itemListElement.forEach((item, index) => {
-        // Guardamos coordenadas de la excursión
-        const latExc = item.containedInPlace.geo.latitude;
-        const lonExc = item.containedInPlace.geo.longitude;
-        coordenadas.push([latExc, lonExc]);
-
         // Tarjeta del portafolio
         const portfolioItemHTML = `
           <div class="col-md-6 col-lg-4 mb-5">
@@ -258,18 +254,31 @@ function cargarDatos() {
             </div>
           </div>
         </div>
-      `;
-      coordenadas.push([item.containedInPlace.geo.latitude,item.containedInPlace.geo.longitude])
-      
-      portfolioModals.innerHTML += modalHTML;
-
+        `;
+        portfolioModals.innerHTML += modalHTML;
+        coordenadas.push([item.containedInPlace.geo.latitude,item.containedInPlace.geo.longitude]);
+        infAves.push([item.containedInPlace.geo.latitude,item.containedInPlace.geo.longitude,avesData.species,zonasData.landforms]);
         mapas.push(item.hasMap);
+      });
 
-        // Evento al mostrar la sección de aves para calcular y mostrar ave más próxima
-        const avesCollapse = document.getElementById(`collapseAves${index + 1}`);
-        avesCollapse.addEventListener('show.bs.collapse', function() {
-          const avesInfo = document.getElementById(`avesInfo${index + 1}`);
-          const nearest = getNearestBird(latExc, lonExc, avesData.species, zonasData.landforms);
+      // He arreglado lo de las aves, ahora mismo peta porque no estan las imagenes que tocan asi
+      //que las busca en NUESTRO directorio de don dominio o falta poner la pagina web de vuestros compañeros en su json (o podemos hacer un append con una funcion)
+      //o nos descargamos sus imagenes y las subimos a mano en nuestra carpeta. - Alex
+
+      //Nuestros directorios para lo de las aves son:
+      //https://www.explorarmallorca.com/assets/img/Aves/{nombredelpajaro}/{nombredelpajaro}.jpg
+      //https://www.explorarmallorca.com/assets/img/Aves/{nombredelpajaro}/{nombredelpajaro}.jpg
+      //Si los hacemos de su pagina web tienen que habilitar el CORS (no se si esta habilitado o no, en la nuestra deberia estarlo),
+      //y podemos quitar los directorios, si nos descargamos lo suyo meterlo en los directorios anteriores, dejo esto escrito por aqui que son las 3am
+      // y no os quiero despertar con un mensaje de Whatsapp xD - Alex
+
+
+      // Evento al mostrar la sección de aves para calcular y mostrar ave más próxima
+      document.querySelectorAll('[id^="collapseAves"]').forEach((modal,index)=>{
+        modal.addEventListener('show.bs.collapse', function() {
+          console.log("ESTO FUNCIONA");
+          const avesInfo = modal.querySelector('[id^="avesInfo"]');
+          const nearest = getNearestBird(infAves[index][0], infAves[index][1], infAves[index][2], infAves[index][3]);
           if (nearest) {
             const audioObj = nearest.subjectOf.find(m => m.encodingFormat.indexOf('audio') !== -1);
             avesInfo.innerHTML = `
@@ -284,6 +293,7 @@ function cargarDatos() {
           }
         });
       });
+      
 
       // Inicializaciones comunes
       document.querySelectorAll('.portfolio-modal').forEach((modal,index) => {
