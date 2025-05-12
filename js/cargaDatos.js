@@ -261,18 +261,6 @@ function cargarDatos() {
         mapas.push(item.hasMap);
       });
 
-      // He arreglado lo de las aves, ahora mismo peta porque no estan las imagenes que tocan asi
-      //que las busca en NUESTRO directorio de don dominio o falta poner la pagina web de vuestros compañeros en su json (o podemos hacer un append con una funcion)
-      //o nos descargamos sus imagenes y las subimos a mano en nuestra carpeta. - Alex
-
-      //Nuestros directorios para lo de las aves son:
-      //https://www.explorarmallorca.com/assets/img/Aves/{nombredelpajaro}/{nombredelpajaro}.jpg
-      //https://www.explorarmallorca.com/assets/img/Aves/{nombredelpajaro}/{nombredelpajaro}.jpg
-      //Si los hacemos de su pagina web tienen que habilitar el CORS (no se si esta habilitado o no, en la nuestra deberia estarlo),
-      //y podemos quitar los directorios, si nos descargamos lo suyo meterlo en los directorios anteriores, dejo esto escrito por aqui que son las 3am
-      // y no os quiero despertar con un mensaje de Whatsapp xD - Alex
-
-
       // Evento al mostrar la sección de aves para calcular y mostrar ave más próxima
       document.querySelectorAll('[id^="collapseAves"]').forEach((modal,index)=>{
         modal.addEventListener('show.bs.collapse', function() {
