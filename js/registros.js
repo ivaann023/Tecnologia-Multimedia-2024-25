@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
             // 3) Opcional: enviar al PHP
             try {
-              const response = await fetch('php/save_comment.php', {
+              const response = await fetch('php/comentarios.php', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ excursionId, author, comment, rating })

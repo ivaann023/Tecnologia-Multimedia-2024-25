@@ -373,9 +373,23 @@ function generateStars(ratingValue) {
 // Función para generar los comentarios
 function generateComments(reviews) {
   return reviews.map(review => {
+    
+    const date = review.datePublished 
+      ? new Date(review.datePublished).toLocaleDateString() 
+      : '';
+
+    const ratingValue = review.reviewRating?.ratingValue || review.ratingValue || 0;
+
     return `
-      <div class="comment mb-3">
-        <p><strong>${review.author.name}:</strong> ${review.reviewBody}</p>
+      <div class="comment fade-in mb-3 p-3 border rounded bg-light-subtle">
+        <div class="d-flex justify-content-between align-items-center mb-1">
+          <strong class="text-primary">${review.author.name}</strong>
+          ${date ? `<small class="text-muted">${date}</small>` : ''}
+        </div>
+        <div class="mb-1">
+          ${generateStars(ratingValue)}
+        </div>
+        <p class="mb-0">${review.reviewBody}</p>
       </div>
     `;
   }).join('');
