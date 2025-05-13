@@ -19,6 +19,9 @@ function getWeather(coordenadas) {
         .then(data => {
         const weather = data.current_weather;
 
+        // Añade este log para depuración
+        console.log('Datos recibidos:', weather);
+
         // Valores por defecto:
         let description = 'Despejado';
         let iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/4/47/Weather_Forecast-Sunny.svg';
@@ -33,33 +36,39 @@ function getWeather(coordenadas) {
               break;
 
             case 1:
+            case 2:
               description = 'Parcialmente nublado';
               iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/3/32/Weather_Forecast-PartlyCloudy.svg';
               category    = 'partly-cloudy';
               break;
 
-            case 2:
+            case 3:
               description = 'Nublado';
               iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/7/77/Weather_Forecast-Overcast.svg';
               category    = 'overcast';
               break;
 
-            case 3:
+            case 61:
               description = 'Lluvia ligera';
               iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Weather_Forecast-Overcast%2Bshowers.svg';
               category    = 'light-rain';
               break;
 
-            case 4:
+            case 63:
+            case 65:
+            case 80:
+            case 81:
+            case 82:
               description = 'Lluvia';
               iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/d/db/Weather_Forecast-Overcast%2Brain.svg';
               category    = 'rain';
               break;
 
             default:
-              description = 'Desconocido';
-              iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/d/db/Weather_Forecast-Overcast%2Brain.svg';
-              category    = 'sunny'; 
+              description = 'Clima no especificado';
+              iconUrl     = '../assets/img/weather-unknown.svg';
+              category    = 'unknown';
+              break;
         }
 
         // Se ponen los datos en la tarjeta

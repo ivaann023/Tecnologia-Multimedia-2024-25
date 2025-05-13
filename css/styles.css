@@ -11807,6 +11807,16 @@ body:has(#login-box[style*="display: block"])::before {
      VARIANTES DE CLIMA 
      ────────────────────────────────────────────────────────────────────────── */
   
+  /* No especificado */
+  .weather-unknown {
+    background: linear-gradient(145deg, #ECEFF1 0%, #CFD8DC 50%, #B0BEC5 100%);
+    border: 2px solid #90A4AE;
+  }
+
+  .weather-unknown .divider {
+    border-color: rgba(144, 164, 174, 0.6);
+  }
+
   /* SUNNY */
   .weather-sunny {
     background: linear-gradient(145deg, #FFECB3 0%, #FFD54F 50%, #FFC107 100%);
