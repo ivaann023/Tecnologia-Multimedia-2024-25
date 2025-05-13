@@ -32,7 +32,7 @@ function initMap() {
         shadowSize:   [41, 41]
     });
 
-    // Haversine para distancia en km
+    // Para calcular la distancia en km
     function toRad(deg) { return deg * Math.PI / 180; }
     function getDistanceKm(lat1, lon1, lat2, lon2) {
         var R = 6371; // km
@@ -46,7 +46,7 @@ function initMap() {
 
     // Carga y pinta marcadores de excursiones según proximidad
     function loadExcursiones(userLat, userLng) {
-        var PROXIMITY_KM = 20; // ajusta el radio a tu gusto
+        var PROXIMITY_KM = 20;
         fetch('json/excursiones.json')
             .then(function(res) {
                 if (!res.ok) throw new Error('Respuesta de red no OK');
