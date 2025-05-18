@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function cargarDatos() {
   const urlJson = "https://www.explorarmallorca.com/json/excursiones.json";
   const reviewsJson = "https://www.explorarmallorca.com/json/reviews.json";
+  
   const avesJson = "https://www.explorarmallorca.com/json/Ave.json";
   const zonasJson = "https://www.explorarmallorca.com/json/Zona.json";
   var mapas = [];
@@ -111,13 +112,30 @@ function cargarDatos() {
                     <!-- Galería de Imágenes -->
                     <div class="accordion-item mb-3 rounded shadow-sm">
                       <h2 class="accordion-header" id="headingGallery${index + 1}">
-                        <button class="accordion-button collapsed custom-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGallery${index + 1}" aria-expanded="false" aria-controls="collapseGallery${index + 1}">
+                        <button
+                          class="accordion-button collapsed custom-accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseGallery${index + 1}"
+                          aria-expanded="false"
+                          aria-controls="collapseGallery${index + 1}"
+                        >
                           <i class="fas fa-images me-2"></i> Galería de Imágenes
                         </button>
                       </h2>
-                      <div id="collapseGallery${index + 1}" class="accordion-collapse collapse" aria-labelledby="headingGallery${index + 1}">
+                      <div
+                        id="collapseGallery${index + 1}"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="headingGallery${index + 1}"
+                      >
                         <div class="accordion-body">
-                          <div id="carouselExampleControlsNoTouching${index + 1}" class="carousel slide" data-bs-touch="false" data-bs-ride="carousel" data-bs-interval="4000">
+                          <div
+                            id="galleryCarousel${index + 1}"
+                            class="carousel slide gallery-carousel"
+                            data-bs-touch="false"
+                            data-bs-ride="carousel"
+                            data-bs-interval="4000"
+                          >
                             <div class="carousel-inner">
                               ${item.image.slice(1).map((imgUrl, imgIndex) => {
                                 const activeClass = imgIndex === 0 ? "active" : "";
@@ -128,11 +146,21 @@ function cargarDatos() {
                                 `;
                               }).join('')}
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching${index + 1}" data-bs-slide="prev">
+                            <button
+                              class="carousel-control-prev"
+                              type="button"
+                              data-bs-target="#galleryCarousel${index + 1}"
+                              data-bs-slide="prev"
+                            >
                               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                               <span class="visually-hidden">Anterior</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching${index + 1}" data-bs-slide="next">
+                            <button
+                              class="carousel-control-next"
+                              type="button"
+                              data-bs-target="#galleryCarousel${index + 1}"
+                              data-bs-slide="next"
+                            >
                               <span class="carousel-control-next-icon" aria-hidden="true"></span>
                               <span class="visually-hidden">Siguiente</span>
                             </button>
@@ -140,12 +168,12 @@ function cargarDatos() {
                         </div>
                       </div>
                     </div>
-
-                    <!-- Mapa de Ubicación -->
+                    
+                    <!-- Mapa de Ruta -->
                     <div class="accordion-item mb-3 rounded shadow-sm">
                       <h2 class="accordion-header" id="headingMap${index + 1}">
                         <button class="accordion-button collapsed custom-accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMap${index + 1}" aria-expanded="false" aria-controls="collapseMap${index + 1}">
-                          <i class="fas fa-map-marker-alt me-2"></i> Ubicación en el Mapa
+                          <i class="fas fa-map-marker-alt me-2"></i> Ruta de la Excursión
                         </button>
                       </h2>
                       <div id="collapseMap${index + 1}" class="accordion-collapse collapse" aria-labelledby="headingMap${index + 1}">
@@ -168,7 +196,7 @@ function cargarDatos() {
                       <div id="collapseVideo${index + 1}" class="accordion-collapse collapse" aria-labelledby="headingVideo${index + 1}">
                         <div class="accordion-body">
                           <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
-                            <iframe src="${item.subjectOf.video.embedUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <lite-youtube videoid="${removeSubString(item.subjectOf.video.embedUrl)}"></lite-youtube>  
                           </div>
                         </div>
                       </div>
@@ -307,6 +335,7 @@ function cargarDatos() {
       addSpeakButtons();
       getWeather(coordenadas);
       initializeCommentForms();
+      setupLoadMore();
   })
   .catch(error => {
     console.error("Error al cargar los datos:", error);
@@ -417,4 +446,51 @@ function parseTime(time){
     duration=duration+ minutos[0] + " dia(s)  ";
   }
   return duration;
+}
+
+// Función para cargar más elementos en el portafolio
+function setupLoadMore() {
+  const grid = document.getElementById('portfolioGrid');
+  const items = Array.from(grid.children);
+  if (items.length <= 5) return; // nada que hacer si hay ≤5
+
+  // 1) Oculta desde la 6ª en adelante
+  items.forEach((el, i) => {
+    if (i > 4) el.style.display = 'none';
+  });
+
+  // 2) Crea el botón
+  const container = document.createElement('div');
+  container.className = 'text-center';
+  container.innerHTML = `
+    <button id="loadMoreBtn" class="btn btn-primary">
+      Cargar más
+    </button>
+  `;
+  grid.parentNode.insertBefore(container, grid.nextSibling);
+
+  // 3) Lógica toggle
+  let expanded = false;
+  const btn = container.querySelector('#loadMoreBtn');
+  btn.addEventListener('click', () => {
+    expanded = !expanded;
+    if (expanded) {
+      // muestro todo
+      items.forEach(el => el.style.display = '');
+      btn.textContent = 'Cargar menos';
+    } else {
+      // vuelvo a ocultar desde la 6ª
+      items.forEach((el, i) => {
+        el.style.display = i > 4 ? 'none' : '';
+      });
+      btn.textContent = 'Cargar más';
+      // opcional: hacemos scroll al principio del grid
+      grid.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+}
+
+function removeSubString(header){
+  const substring="https://www.youtube.com/embed/";
+  return header.replace(substring,''); 
 }

@@ -9,14 +9,14 @@ function cargarEquipo() {
         {
             name: "Àngel Jiménez",
             position: "Estudiante Ingeniería Informática UIB",
-            imgSrc: "assets/img/contacto/miembro01.jpg",
-            linkedIn: "https://www.linkedin.com/"
+            imgSrc: "https://www.explorarmallorca.com/assets/img/contacto/angel.jpeg",
+            linkedIn: "https://www.linkedin.com/in/angel-jimenez-sanchis-bbb37a351/"
         },
         {
             name: "Iván Pérez",
             position: "Estudiante Ingeniería Informática UIB",
-            imgSrc: "assets/img/contacto/miembro02.jpg",
-            linkedIn: "https://www.linkedin.com/"
+            imgSrc: "https://www.explorarmallorca.com/assets/img/contacto/ivan.jpeg",
+            linkedIn: "https://www.linkedin.com/in/iv%C3%A1n-p%C3%A9rez-garc%C3%ADa-583b97330/"
         },
         {
             name: "Alex Hierro",
@@ -37,7 +37,7 @@ function cargarEquipo() {
                     <a href="${member.linkedIn}" target="_blank">
                         <img class="team-img" src="${member.imgSrc}" alt="Miembro de equipo: ${member.name}">
                     </a>
-                    <h4>${member.name}</h4>
+                    <h3>${member.name}</h3>
                     <p class="text-light">${member.position}</p>
                 </div>
             </div>

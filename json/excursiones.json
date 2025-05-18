@@ -19,7 +19,7 @@
             "@type": "VideoObject",
             "name": "Vídeo de la Excursión a Sa Calobra",
             "description": "Un recorrido visual por la excursión a Sa Calobra.",
-            "embedUrl": "https://www.youtube.com/embed/czOLbyS_FH0?start=140"
+            "embedUrl": "https://www.youtube.com/embed/czOLbyS_FH0"
           }
         },
         "hasMap": "https://www.explorarmallorca.com/rutas/soller-sa-calobra-cala-tunet.gpx",
@@ -371,7 +371,7 @@
     {
       "@identifier": 10,
       "@type": "Place",
-      "name": "Ruta Betlem, Ermita de Betlem, Puig de sa Creu, Talaia Freda",
+      "name": "Ruta Betlem",
       "description": "Esta ruta circular en la zona de Betlem recorre la Ermita de Betlem, asciende al Puig de sa Creu y culmina en la Talaia Freda, ofreciendo vistas al mar y al interior de la isla a lo largo de sus 14 km.",
       "image": [
         "https://www.explorarmallorca.com/assets/excursion10/rutabetlem1.jpg",

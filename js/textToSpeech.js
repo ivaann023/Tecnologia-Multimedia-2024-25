@@ -1,24 +1,50 @@
 // Usamos el Speech Synthesis API, que es una API nativa implementada en la mayoría de navegadores actuales.
 
 function addSpeakButtons() {
-    const textElements = document.querySelectorAll('.speak-text');
-    textElements.forEach(el => {
-        // Crear un contenedor de texto que solo tiene el texto
-        const textContent = el.textContent.trim(); // Obtener el texto sin el emote del altavoz
+  const textElements = document.querySelectorAll('.speak-text');
+  textElements.forEach(el => {
+    // Texto que vamos a leer
+    const textContent = el.textContent.trim();
 
-        // Crear un botón para el botón de lectura (emote)
-        const button = document.createElement('button');
-        button.textContent = '🔊';  // Emoji para indicar sonido/lectura
-        button.classList.add('speak-button');
-        
-        // Agregar un evento click para activar la síntesis de voz
-        button.addEventListener('click', () => {
-            const utterance = new SpeechSynthesisUtterance(textContent);
-            utterance.lang = 'es-ES';
-            window.speechSynthesis.speak(utterance);
-        });
-        
-        // Insertar el botón justo después del texto (a la derecha)
-        el.appendChild(button);  // Esto coloca el botón al final del texto
+    // Crear el botón de control
+    const button = document.createElement('button');
+    button.classList.add('speak-button');
+    button.dataset.state = 'idle'; // idle, speaking, paused
+    button.textContent = '🔊';
+    el.appendChild(button);
+
+    let utterance = null;
+
+    button.addEventListener('click', () => {
+      const state = button.dataset.state;
+
+      if (state === 'idle') {
+        // 1) Comenzar
+        utterance = new SpeechSynthesisUtterance(textContent);
+        utterance.lang = 'es-ES';
+
+        // Cuando termine, volvemos a estado idle
+        utterance.onend = () => {
+          button.dataset.state = 'idle';
+          button.textContent = '🔊';
+        };
+
+        window.speechSynthesis.speak(utterance);
+        button.dataset.state = 'speaking';
+        button.textContent = '⏸️';
+
+      } else if (state === 'speaking') {
+        // 2) Pausar
+        window.speechSynthesis.pause();
+        button.dataset.state = 'paused';
+        button.textContent = '▶️';
+
+      } else if (state === 'paused') {
+        // 3) Reanudar
+        window.speechSynthesis.resume();
+        button.dataset.state = 'speaking';
+        button.textContent = '⏸️';
+      }
     });
+  });
 }
