@@ -8,10 +8,10 @@
         "name": "Sa Calobra",
         "description": "Sa Calobra es una de las excursiones más impresionantes de Mallorca. Situada en la Sierra de Tramuntana, esta ruta ofrece paisajes espectaculares, un desfiladero impresionante y una playa escondida de aguas cristalinas. Es un destino ideal para los amantes de la naturaleza y el senderismo.",
         "image": [
-          "https://www.explorarmallorca.com/assets/excursion1/calobra00.jpg",
-          "https://www.explorarmallorca.com/assets/excursion1/calobra01.jpg",
-          "https://www.explorarmallorca.com/assets/excursion1/calobra02.jpg",
-          "https://www.explorarmallorca.com/assets/excursion1/calobra03.jpg"
+          "https://www.explorarmallorca.com/assets/excursion1/calobra00.webp",
+          "https://www.explorarmallorca.com/assets/excursion1/calobra01.webp",
+          "https://www.explorarmallorca.com/assets/excursion1/calobra02.webp",
+          "https://www.explorarmallorca.com/assets/excursion1/calobra03.webp"
         ],
         "subjectOf": {
           "@type": "CreativeWork",
@@ -48,10 +48,10 @@
         "name": "Talaia d'Alcudia",
         "description": "La Talaia d'Alcudia, también conocida como Talaia de la Victoria, se alza imponente al noreste de Mallorca. Con una altitud de 446 metros, esta cima ofrece una de las panorámicas más completas de la isla: desde la Serra de Tramuntana hasta las bahías de Alcudia y Pollença, e incluso, en días despejados, la silueta de Menorca en el horizonte.",
         "image": [
-          "https://www.explorarmallorca.com/assets/excursion2/talaia00.jpg",
-          "https://www.explorarmallorca.com/assets/excursion2/talaia01.jpg",
-          "https://www.explorarmallorca.com/assets/excursion2/talaia02.jpg",
-          "https://www.explorarmallorca.com/assets/excursion2/talaia03.jpg"
+          "https://www.explorarmallorca.com/assets/excursion2/talaia00.webp",
+          "https://www.explorarmallorca.com/assets/excursion2/talaia01.webp",
+          "https://www.explorarmallorca.com/assets/excursion2/talaia02.webp",
+          "https://www.explorarmallorca.com/assets/excursion2/talaia03.webp"
         ],
         "subjectOf": {
           "@type": "CreativeWork",
@@ -88,10 +88,10 @@
       "name": "Camí de s’Arxiduc",
       "description": "El Camí de s’Arxiduc es una de las rutas de senderismo más emblemáticas de Mallorca. Situada en la Serra de Tramuntana, esta senda histórica fue diseñada en 1883 por el Archiduque Luis Salvador de Austria para disfrutar de las vistas panorámicas del norte de la isla. El recorrido ofrece paisajes espectaculares, incluyendo bosques de encinas, miradores sobre el mar y puntos de interés como la Cova de s’Ermità Guillem.",
       "image": [
-        "https://www.explorarmallorca.com/assets/excursion3/arxiduc00.jpg",
-        "https://www.explorarmallorca.com/assets/excursion3/arxiduc01.jpg",
-        "https://www.explorarmallorca.com/assets/excursion3/arxiduc02.jpg",
-        "https://www.explorarmallorca.com/assets/excursion3/arxiduc03.jpg"
+        "https://www.explorarmallorca.com/assets/excursion3/arxiduc00.webp",
+        "https://www.explorarmallorca.com/assets/excursion3/arxiduc01.webp",
+        "https://www.explorarmallorca.com/assets/excursion3/arxiduc02.webp",
+        "https://www.explorarmallorca.com/assets/excursion3/arxiduc03.webp"
       ],
       "subjectOf": {
         "@type": "CreativeWork",
@@ -128,10 +128,10 @@
       "name": "Camí des Barranc de Biniaraix",
       "description": "El Camí des Barranc de Biniaraix es uno de los tres grandes conjuntos patrimoniales ligados a la técnica de construcción conocida como “Piedra en seco” que están protegidos con la figura de bienes de interés cultural (BIC) en Mallorca. Está situado al extremo sur-oriental de Sóller. Se trata de un cañón cárstico modelado por la acción de las aguas que drenan hacia poniente.  Además, ha constituido la vía principal de comunicación del valle de Sóller y Fornalutx con los valles del L’Ofre, Cúber, Orient o el monasterio de Lluc.",
       "image": [
-        "https://www.explorarmallorca.com/assets/excursion4/biniaraix00.jpg",
-        "https://www.explorarmallorca.com/assets/excursion4/biniaraix01.jpg",
-        "https://www.explorarmallorca.com/assets/excursion4/biniaraix02.jpg",
-        "https://www.explorarmallorca.com/assets/excursion4/biniaraix03.jpg"
+        "https://www.explorarmallorca.com/assets/excursion4/biniaraix00.webp",
+        "https://www.explorarmallorca.com/assets/excursion4/biniaraix01.webp",
+        "https://www.explorarmallorca.com/assets/excursion4/biniaraix02.webp",
+        "https://www.explorarmallorca.com/assets/excursion4/biniaraix03.webp"
       ],
       "subjectOf": {
         "@type": "CreativeWork",
@@ -168,10 +168,10 @@
       "name": "Puigpunyent",
       "description": "La ruta de Puigpunyent al Puig de na Bauçana es una joya poco conocida de la Serra de Tramuntana que combina historia, naturaleza y espectaculares vistas. El recorrido comienza en el pintoresco pueblo de Puigpunyent, y asciende por antiguos caminos de carboneros hasta el emblemático Pas de sa Ventalla, un paso natural entre rocas con vistas únicas del valle. La ruta culmina en el Puig de na Bauçana, desde donde se domina una panorámica impresionante que abarca desde la costa suroeste hasta los picos más altos de la sierra.",
       "image": [
-        "https://www.explorarmallorca.com/assets/excursion5/puigpunyent1.jpg",
-        "https://www.explorarmallorca.com/assets/excursion5/puigpunyent2.jpg",
-        "https://www.explorarmallorca.com/assets/excursion5/puigpunyent3.jpg",
-        "https://www.explorarmallorca.com/assets/excursion5/puigpunyent4.jpg"
+        "https://www.explorarmallorca.com/assets/excursion5/puigpunyent1.webp",
+        "https://www.explorarmallorca.com/assets/excursion5/puigpunyent2.webp",
+        "https://www.explorarmallorca.com/assets/excursion5/puigpunyent3.webp",
+        "https://www.explorarmallorca.com/assets/excursion5/puigpunyent4.webp"
       ],
       "subjectOf": {
         "@type": "CreativeWork",
@@ -208,10 +208,10 @@
       "name": "Puig de Sant Salvador",
       "description": "La ruta del Castell de Santueri a Sant Salvador ofrece una de las caminatas más cautivadoras del sureste de Mallorca, combinando historia medieval, vistas espectaculares y naturaleza mediterránea. El recorrido comienza en las inmediaciones del Castell de Santueri, desde el castillo, el camino asciende por senderos rodeados de pinares, garrigas y formaciones rocosas hasta llegar al Santuario de Sant Salvador. Este antiguo monasterio, destaca por su monumental cristo, la cruz del Picot y su mirador, desde donde se contempla una de las mejores panorámicas de la isla.",
       "image": [
-        "https://www.explorarmallorca.com/assets/excursion6/puigsalvador1.jpg",
-        "https://www.explorarmallorca.com/assets/excursion6/puigsalvador2.jpg",
-        "https://www.explorarmallorca.com/assets/excursion6/puigsalvador3.jpg",
-        "https://www.explorarmallorca.com/assets/excursion6/puigsalvador4.jpg"
+        "https://www.explorarmallorca.com/assets/excursion6/puigsalvador1.webp",
+        "https://www.explorarmallorca.com/assets/excursion6/puigsalvador2.webp",
+        "https://www.explorarmallorca.com/assets/excursion6/puigsalvador3.webp",
+        "https://www.explorarmallorca.com/assets/excursion6/puigsalvador4.webp"
       ],
       "subjectOf": {
         "@type": "CreativeWork",
@@ -248,10 +248,10 @@
       "name": "Puig Major",
       "description": "La ascensión al Puig Major desde el Coll dels Reis es una de las rutas más desafiantes y espectaculares de la Serra de Tramuntana. La ruta parte cerca del célebre Coll dels Reis, en la carretera de Sa Calobra, y transcurre por terreno abrupto, pedregoso y de alta montaña, atravesando paisajes kársticos, restos de actividad militar y vistas vertiginosas.  El recorrido permite alcanzar puntos cercanos de altísima cota, como el Morro d’en Pelut, desde donde se domina una vista impresionante de toda la sierra. Se trata de una ruta exigente, reservada a senderistas experimentados, una experiencia inolvidable para quienes buscan conquistar la cima más emblemática de Mallorca",
       "image": [
-        "https://www.explorarmallorca.com/assets/excursion7/puigmayor1.jpg",
-        "https://www.explorarmallorca.com/assets/excursion7/puigmayor2.jpg",
-        "https://www.explorarmallorca.com/assets/excursion7/puigmayor3.jpg",
-        "https://www.explorarmallorca.com/assets/excursion7/puigmayor4.jpg"
+        "https://www.explorarmallorca.com/assets/excursion7/puigmayor1.webp",
+        "https://www.explorarmallorca.com/assets/excursion7/puigmayor2.webp",
+        "https://www.explorarmallorca.com/assets/excursion7/puigmayor3.webp",
+        "https://www.explorarmallorca.com/assets/excursion7/puigmayor4.webp"
       ],
       "subjectOf": {
         "@type": "CreativeWork",
@@ -288,10 +288,10 @@
       "name": "Puig de Massanella",
       "description": "El Puig de Massanella, con sus 1.364 metros de altitud, es la segunda cima más alta de Mallorca y ofrece panorámicas espectaculares de la isla. La ruta circular parte desde el Santuari de Lluc, atravesando bosques de pino y sendas de alta montaña.",
       "image": [
-        "https://www.explorarmallorca.com/assets/excursion8/puigmassanella1.jpg",
-        "https://www.explorarmallorca.com/assets/excursion8/puigmassanella2.jpg",
-        "https://www.explorarmallorca.com/assets/excursion8/puigmassanella3.jpg",
-        "https://www.explorarmallorca.com/assets/excursion8/puigmassanella4.jpg"
+        "https://www.explorarmallorca.com/assets/excursion8/puigmassanella1.webp",
+        "https://www.explorarmallorca.com/assets/excursion8/puigmassanella2.webp",
+        "https://www.explorarmallorca.com/assets/excursion8/puigmassanella3.webp",
+        "https://www.explorarmallorca.com/assets/excursion8/puigmassanella4.webp"
       ],
       "subjectOf": {
         "@type": "CreativeWork",
@@ -331,10 +331,10 @@
       "name": "Castell d'Alaró",
       "description": "La ruta al Castell d'Alaró es una de las excursiones más emblemáticas de la Serra de Tramuntana. Desde el pueblo de Alaró se asciende por un camino semi-circular hasta las ruinas del castillo, situadas a 822 metros de altitud, con vistas de 360° sobre la isla.",
       "image": [
-        "https://www.explorarmallorca.com/assets/excursion9/castellalaro1.jpg",
-        "https://www.explorarmallorca.com/assets/excursion9/castellalaro2.jpg",
-        "https://www.explorarmallorca.com/assets/excursion9/castellalaro3.jpg",
-        "https://www.explorarmallorca.com/assets/excursion9/castellalaro4.jpg"
+        "https://www.explorarmallorca.com/assets/excursion9/castellalaro1.webp",
+        "https://www.explorarmallorca.com/assets/excursion9/castellalaro2.webp",
+        "https://www.explorarmallorca.com/assets/excursion9/castellalaro3.webp",
+        "https://www.explorarmallorca.com/assets/excursion9/castellalaro4.webp"
       ],
       "subjectOf": {
         "@type": "CreativeWork",
@@ -374,10 +374,10 @@
       "name": "Ruta Betlem",
       "description": "Esta ruta circular en la zona de Betlem recorre la Ermita de Betlem, asciende al Puig de sa Creu y culmina en la Talaia Freda, ofreciendo vistas al mar y al interior de la isla a lo largo de sus 14 km.",
       "image": [
-        "https://www.explorarmallorca.com/assets/excursion10/rutabetlem1.jpg",
-        "https://www.explorarmallorca.com/assets/excursion10/rutabetlem2.jpg",
-        "https://www.explorarmallorca.com/assets/excursion10/rutabetlem3.jpg",
-        "https://www.explorarmallorca.com/assets/excursion10/rutabetlem4.jpg"
+        "https://www.explorarmallorca.com/assets/excursion10/rutabetlem1.webp",
+        "https://www.explorarmallorca.com/assets/excursion10/rutabetlem2.webp",
+        "https://www.explorarmallorca.com/assets/excursion10/rutabetlem3.webp",
+        "https://www.explorarmallorca.com/assets/excursion10/rutabetlem4.webp"
         
       ],
       "subjectOf": {
