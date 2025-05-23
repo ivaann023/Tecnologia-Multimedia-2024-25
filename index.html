@@ -268,19 +268,37 @@
                             Tu navegador no soporta el elemento de vídeo.
                             </video>
                             <div class="video-controls d-flex align-items-center justify-content-center mt-3">
-                            <button id="play-btn"  class="btn btn-primary me-2"><i class="fas fa-play"></i></button>
-                            <button id="pause-btn" class="btn btn-primary me-2"><i class="fas fa-pause"></i></button>
-                            <button id="stop-btn"  class="btn btn-primary me-2"><i class="fas fa-stop"></i></button>
-                            <div class="d-flex align-items-center ms-3">
-                                <i class="fas fa-volume-down me-2"></i>
-                                <input id="volume-slider"
-                                    type="range"
-                                    min="0" max="1" step="0.05"
-                                    value="0"
-                                    class="form-range"
-                                    style="width: 120px;">
-                                <i class="fas fa-volume-up ms-2"></i>
-                            </div>
+                                
+                                <button id="play-btn"
+                                        class="btn btn-primary me-2"
+                                        aria-label="Reproducir vídeo">
+                                    <i class="fas fa-play" aria-hidden="true"></i>
+                                </button>
+
+                                <button id="pause-btn"
+                                        class="btn btn-primary me-2"
+                                        aria-label="Pausar vídeo">
+                                    <i class="fas fa-pause" aria-hidden="true"></i>
+                                </button>
+
+                                <button id="stop-btn"
+                                        class="btn btn-primary me-2"
+                                        aria-label="Detener vídeo">
+                                    <i class="fas fa-stop" aria-hidden="true"></i>
+                                </button>
+
+                                <div class="d-flex align-items-center ms-3">
+                                    <i class="fas fa-volume-down me-2" aria-hidden="true"></i>
+                                    <input id="volume-slider"
+                                        type="range"
+                                        min="0" max="1" step="0.05"
+                                        value="0"
+                                        class="form-range"
+                                        style="width: 120px;"
+                                        aria-label="Control de volumen">
+                                    <i class="fas fa-volume-up ms-2" aria-hidden="true"></i>
+                                </div>
+
                             </div>
                         </div>
                         </div>
