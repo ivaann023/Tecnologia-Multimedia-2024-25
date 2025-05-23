@@ -84,13 +84,13 @@ function initMap() {
 
     // Carga y pinta marcadores de aves
     function loadBirds(userLat, userLng) {
-        fetch('json/Ave.json')
+        fetch('https://avesmallorquinas.com/assets/json/Ave.json')
             .then(function(res) {
                 if (!res.ok) throw new Error('Error cargando Ave.json');
                 return res.json();
             })
             .then(function(avesData) {
-                return fetch('json/Zona.json')
+                return fetch('https://avesmallorquinas.com/assets/json/Zona.json')
                     .then(function(res) {
                         if (!res.ok) throw new Error('Error cargando Zona.json');
                         return res.json();

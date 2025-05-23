@@ -134,6 +134,32 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
 
+    // Controles del vídeo de “Conócenos”
+    const teamVideo = document.getElementById('team-video');
+    const playBtn   = document.getElementById('play-btn');
+    const pauseBtn  = document.getElementById('pause-btn');
+    const stopBtn   = document.getElementById('stop-btn');
+
+    if (teamVideo) {
+        playBtn.addEventListener('click',  () => teamVideo.play());
+        pauseBtn.addEventListener('click', () => teamVideo.pause());
+        stopBtn.addEventListener('click',  () => {
+        teamVideo.pause();
+        teamVideo.currentTime = 0;
+        });
+    }
+
+    const volumeSlider = document.getElementById('volume-slider');
+    if (teamVideo && volumeSlider) {
+    // Inicializa el valor del vídeo
+    teamVideo.volume = parseFloat(volumeSlider.value);
+
+    // Al mover el slider, cambia el volumen
+    volumeSlider.addEventListener('input', e => {
+        teamVideo.volume = parseFloat(e.target.value);
+    });
+    }
+
     // Evita que al interactuar con el dropdown de usuario se cierre el menú hamburguesa
     document.querySelectorAll('.dropdown-menu').forEach(menu => {
         menu.addEventListener('click', e => e.stopPropagation());

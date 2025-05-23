@@ -7,8 +7,8 @@ function cargarDatos() {
   const urlJson = "https://www.explorarmallorca.com/json/excursiones.json";
   const reviewsJson = "https://www.explorarmallorca.com/json/reviews.json";
   
-  const avesJson = "https://www.explorarmallorca.com/json/Ave.json";
-  const zonasJson = "https://www.explorarmallorca.com/json/Zona.json";
+  const avesJson = "https://avesmallorquinas.com/assets/json/Ave.json";
+  const zonasJson = "https://avesmallorquinas.com/assets/json/Zona.json";
   var mapas = [];
   var coordenadas = [];
   var infAves=[];
