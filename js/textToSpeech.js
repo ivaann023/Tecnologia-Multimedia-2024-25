@@ -9,7 +9,7 @@ function addSpeakButtons() {
     // Crear el botón de control
     const button = document.createElement('button');
     button.classList.add('speak-button');
-    button.dataset.state = 'idle'; // idle, speaking, paused
+    button.dataset.state = 'idle';
     button.textContent = '🔊';
     el.appendChild(button);
 
