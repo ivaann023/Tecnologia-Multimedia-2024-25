@@ -1,54 +1,159 @@
 {
-	"@context": "https://schema.org",
-	"@type": "ItemList",
-	"itemListElement":[
-		{
-			"@identifier": 1,
-			"@type": "UserReview",
-			"itemReviewed": "Sa Calobra",
-			"aggregateRating": {
-			  "@type": "AggregateRating",
-			  "ratingValue": "4.5",
-			  "reviewCount": "3"
-			},
-			"associatedReview": [
-			  {
-				"@type": "Review",
-				"author": {
-				  "@type": "Person",
-				  "name": "Juan Pérez"
-				},
-				"reviewBody": "Una experiencia increíble, los paisajes son espectaculares.",
-				"reviewRating": {
-				  "@type": "Rating",
-				  "ratingValue": "5"
-				}
-			  },
-			  {
-				"@type": "Review",
-				"author": {
-				  "@type": "Person",
-				  "name": "María López"
-				},
-				"reviewBody": "Me encantó la ruta, muy bien señalizada y con vistas impresionantes.",
-				"reviewRating": {
-				  "@type": "Rating",
-				  "ratingValue": "4"
-				}
-			  },
-			  {
-				"@type": "Review",
-				"author": {
-				  "@type": "Person",
-				  "name": "Carlos García"
-				},
-				"reviewBody": "Perfecto para una escapada de fin de semana, muy recomendable.",
-				"reviewRating": {
-				  "@type": "Rating",
-				  "ratingValue": "4"
-				}
-			  }
-			]
-		}
-	]
+    "@context": "https:\/\/schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "@identifier": 1,
+            "position": 1,
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 3.5,
+                "reviewCount": 4
+            },
+            "associatedReview": [
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Juan Pérez"
+                    },
+                    "datePublished": "2025-05-01",
+                    "reviewBody": "Una experiencia increíble, los paisajes son espectaculares.",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": 5
+                    }
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "María López"
+                    },
+                    "datePublished": "2025-05-02",
+                    "reviewBody": "Me encantó la ruta, muy bien señalizada y con vistas impresionantes.",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": 4
+                    }
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Carlos García"
+                    },
+                    "datePublished": "2025-05-03",
+                    "reviewBody": "Perfecto para una escapada de fin de semana, muy recomendable.",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": 4
+                    }
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "p"
+                    },
+                    "datePublished": "2025-05-13",
+                    "reviewBody": "Petita ruta",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": 1
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "UserReview",
+            "@identifier": 3,
+            "position": 3,
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 4,
+                "reviewCount": 1
+            },
+            "associatedReview": [
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "p"
+                    },
+                    "datePublished": "2025-05-13",
+                    "reviewBody": "Primer comentario",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": 4
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "UserReview",
+            "@identifier": 2,
+            "position": 4,
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": 3.5,
+                "reviewCount": 4
+            },
+            "associatedReview": [
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "p"
+                    },
+                    "datePublished": "2025-05-13",
+                    "reviewBody": "Primer comentario",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": 5
+                    }
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "p"
+                    },
+                    "datePublished": "2025-05-13",
+                    "reviewBody": "Segundo",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": 3
+                    }
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "p"
+                    },
+                    "datePublished": "2025-05-13",
+                    "reviewBody": "pepeluiiisss",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": 1
+                    }
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "pepe"
+                    },
+                    "datePublished": "2025-05-25",
+                    "reviewBody": "Me ha encantado!",
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": 5
+                    }
+                }
+            ]
+        }
+    ]
 }

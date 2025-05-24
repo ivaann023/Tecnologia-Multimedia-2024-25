@@ -1,0 +1,32 @@
+[
+    {
+        "name": null,
+        "email": null,
+        "description": "$2y$10$cOiuO2taMelsIksoa7dKv.8FrZu0wXSWbsLPLRhDrLb3Z3Ua37jTq"
+    },
+    {
+        "name": "angel",
+        "email": "a@a.es",
+        "description": "$2y$10$X0gBrllzxKiQ5SmccWfQt.6obQbGBkgcfBNsciIxWf1nZAeTELucG"
+    },
+    {
+        "name": "p",
+        "email": "p@p.es",
+        "description": "$2y$10$vP4HsmTD8U5RjZpXPcDLgui6Sih\/0DlG5.EjkryMZBu0agu4XrClG"
+    },
+    {
+        "name": "angel",
+        "email": "angel@gmail.com",
+        "description": "$2y$10$5xrgb8L1wOXCJmqHt5xZ6eFvDFFUPd7zoOXztD\/BZ.qlgrYgrodvi"
+    },
+    {
+        "name": "angel",
+        "email": "angel@a.com",
+        "description": "$2y$10$RnlupmSyToy8Wu.A9F4WHOGNfsBtUGqqH5yelzonEEhSWTawg3kVC"
+    },
+    {
+        "name": "pepe",
+        "email": "pepe@pepe.es",
+        "description": "$2y$10$\/9MhbgfFpOMkSdJ9ISQPKOYUTeXbpyJxyDKaupMMIm0r\/i\/hR2Ql6"
+    }
+]

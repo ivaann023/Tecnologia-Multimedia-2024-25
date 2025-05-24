@@ -23,34 +23,34 @@ function getWeather(coordenadas) {
         console.log('Datos recibidos:', weather);
 
         // Valores por defecto:
-        let description = 'Despejado';
-        let iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/4/47/Weather_Forecast-Sunny.svg';
-        let category    = 'sunny';
+        let description = 'Clima no especificado';
+        let iconUrl     = 'https://www.explorarmallorca.com/assets/img/clima/Unknown.svg';
+        let category    = 'unknown';
 
         switch (weather.weathercode) {
 
             case 0:
               description = 'Despejado';
-              iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/4/47/Weather_Forecast-Sunny.svg';
+              iconUrl     = 'https://www.explorarmallorca.com/assets/img/clima/Sunny.svg';
               category    = 'sunny';
               break;
 
             case 1:
             case 2:
               description = 'Parcialmente nublado';
-              iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/3/32/Weather_Forecast-PartlyCloudy.svg';
+              iconUrl     = 'https://www.explorarmallorca.com/assets/img/clima/PartlyCloudy.svg';
               category    = 'partly-cloudy';
               break;
 
             case 3:
               description = 'Nublado';
-              iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/7/77/Weather_Forecast-Overcast.svg';
+              iconUrl     = 'https://www.explorarmallorca.com/assets/img/clima/Overcast.svg';
               category    = 'overcast';
               break;
 
             case 61:
               description = 'Lluvia ligera';
-              iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/8/8f/Weather_Forecast-Overcast%2Bshowers.svg';
+              iconUrl     = 'https://www.explorarmallorca.com/assets/img/clima/Showers.svg';
               category    = 'light-rain';
               break;
 
@@ -60,13 +60,13 @@ function getWeather(coordenadas) {
             case 81:
             case 82:
               description = 'Lluvia';
-              iconUrl     = 'https://upload.wikimedia.org/wikipedia/commons/d/db/Weather_Forecast-Overcast%2Brain.svg';
+              iconUrl     = 'https://www.explorarmallorca.com/assets/img/clima/Rain.svg';
               category    = 'rain';
               break;
 
             default:
               description = 'Clima no especificado';
-              iconUrl     = '../assets/img/weather-unknown.svg';
+              iconUrl     = 'https://www.explorarmallorca.com/assets/img/clima/Unknown.svg';
               category    = 'unknown';
               break;
         }
