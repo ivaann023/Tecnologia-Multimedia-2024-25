@@ -19,7 +19,7 @@
             "@type": "VideoObject",
             "name": "Vídeo de la Excursión a Sa Calobra",
             "description": "Un recorrido visual por la excursión a Sa Calobra.",
-            "embedUrl": "https://www.youtube.com/embed/czOLbyS_FH0?start=140"
+            "embedUrl": "https://www.youtube.com/embed/czOLbyS_FH0"
           }
         },
         "hasMap": "https://www.explorarmallorca.com/rutas/soller-sa-calobra-cala-tunet.gpx",

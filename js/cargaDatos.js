@@ -443,7 +443,7 @@ function parseTime(time){
   const re3=/[0-9]+(?=M)/;
   var minutos=time.match(re3);
   if(minutos!==null){
-    duration=duration+ minutos[0] + " dia(s)  ";
+    duration=duration+ minutos[0] + " minuto(s)  ";
   }
   return duration;
 }

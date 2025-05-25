@@ -21,8 +21,8 @@ function cargarEquipo() {
         {
             name: "Alex Hierro",
             position: "Estudiante Ingeniería Informática UIB",
-            imgSrc: "assets/img/contacto/miembro03.jpg",
-            linkedIn: "https://www.linkedin.com/"
+            imgSrc: "https://www.explorarmallorca.com/assets/img/contacto/alex.jpeg",
+            linkedIn: "https://www.linkedin.com/in/alexandre-hierro-pedrosa/"
         }
     ];
 
